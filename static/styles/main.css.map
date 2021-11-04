@@ -2,8 +2,9 @@
 	"version": 3,
 	"file": "main.css",
 	"sources": [
-		"main.scss"
+		"main.scss",
+		"_variables/_colors.scss"
 	],
 	"names": [],
-	"mappings": "AAAA,IAAI,CAAJ,kBAAI;AAIJ,AAAA,EAAE,CAAC;EACC,KAAK,EAAE,YAAY,GACtB"
+	"mappings": "AAIA,AAAA,EAAE,CAAC;EACC,KAAK,ECAM,OAAO,GDCrB"
 }
