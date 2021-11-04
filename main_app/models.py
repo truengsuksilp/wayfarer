@@ -1,4 +1,5 @@
 from django.db import models
+# import models from django
 
 # model imports from django 
 
@@ -31,4 +32,4 @@ class Post (Model):
         ordering = ['created_at']
 
 
-  
+
