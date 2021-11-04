@@ -1,9 +1,30 @@
 from django.db import models
+# import models from django
 
 # model imports from django 
 
 from django.db.models import Model, CharField, ForeignKey, TextField
+
 # Create your models here.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -29,4 +50,4 @@ class Post (Model):
         ordering = ['created_at']
 
 
-  
+
