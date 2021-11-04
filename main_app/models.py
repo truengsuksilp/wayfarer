@@ -5,7 +5,7 @@ from django.db import models
 from django.db.models import Model, CharField, ForeignKey, TextField, DateTimeField
 # Create your models here.
 
-class Profile(Model):
+""" class Profile(Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     join_date = DateTimeField(auto_now_add=True)
     name = CharField(max_length=100)
@@ -16,7 +16,7 @@ class City (Model):
     name = CharField(max_length=250)
     country = CharField(max_length=250)
     picture = CharField(max_length = 1000)
-    user = ForeignKey(User, on_delete=models.CASCADE,related_name="cities")
+    user = ForeignKey(Profile, on_delete=models.CASCADE,related_name="cities")
 
 class Post (Model): 
     title = CharField(max_length = 500)
@@ -32,3 +32,4 @@ class Post (Model):
 
 
   
+ """
