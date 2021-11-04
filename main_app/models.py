@@ -1,11 +1,11 @@
 from django.db import models
 # import models from django
 
-# model imports from django 
+from django.contrib.auth.models import User
 
+# model imports from django 
 from django.db.models import Model, CharField, ForeignKey, TextField, DateTimeField
 # Create your models here.
-
 class Profile(Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     join_date = DateTimeField(auto_now_add=True)
@@ -22,7 +22,7 @@ class City (Model):
 class Post (Model): 
     title = CharField(max_length = 500)
     content = TextField(max_length=10000)
-    user = ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
+    user = ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     city = ForeignKey(City, on_delete=models.CASCADE, related_name="posts")
     created_at = DateTimeField(auto_now_add=True)
 
@@ -31,5 +31,7 @@ class Post (Model):
     class Meta:
         ordering = ['created_at']
 
+
+  
 
 
