@@ -4,6 +4,10 @@
 
 {% block content %}
 
-<h1>Heyyoooo</h1>
+<h1>{{ post.title }}</h1>
+
+<p>by {{ post.profile.name }}</p>
+
+<p>{{ post.content }}</p>
 
 {% endblock %}
