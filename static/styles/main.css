@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box; }
 
+body {
+  background-color: #050719; }
+
 .nav-item {
   display: flex;
   align-items: center; }
