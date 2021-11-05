@@ -5,10 +5,10 @@ Issues
 Marketplace
 Explore
  
-@truengsuksilp 
-truengsuksilp
+@my_phone.is.broke
+al
 /
-project_two
+project_three
 Public
 1
 00
@@ -20,15 +20,7 @@ Projects
 Wiki
 Security
 Insights
-Settings
-project_two/.gitignore
-@truengsuksilp
-truengsuksilp Initial commit
-Latest commit 61e98e8 2 hours ago
- History
- 1 contributor
-129 lines (105 sloc)  1.76 KB
-   
+Settings   
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
