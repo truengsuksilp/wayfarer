@@ -143,6 +143,19 @@ div {
 .member {
   font-size: small; }
 
+.post_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 60vw;
+  min-height: 60vh;
+  padding: 15px;
+  margin: 50px auto;
+  border: 5px solid #836faf;
+  border-radius: 5px; }
+  .post_body img {
+    max-width: 100px; }
+
 @media only screen and (max-width: 420px) {
   #profile_box {
     max-width: 90vw;

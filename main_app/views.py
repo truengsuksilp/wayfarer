@@ -13,7 +13,7 @@ from main_app.models import Profile, Post, City
 from django.views import View
 
 # auth imports
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 # Create your views here.
 
@@ -53,21 +53,13 @@ class Signup(View):
         image = request.POST.get("profile_picture")
         
         
-
-
         if form.is_valid():
             user = form.save()
             profile = Profile.objects.create(name=name, current_city=city, profile_picture=image, user=user)
 
             login(request, user)
-            return redirect("profile", pk=profile.pk)
+            return redirect("profile_detail", pk=profile.pk)
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
 
-#Login View 
-class Login(View):
-    def get(self, request):
-        form = AuthenticationForm()
-        context={"form": form}
-        return render(request, "registration/login.html", context)
