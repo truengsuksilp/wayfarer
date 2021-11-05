@@ -1,10 +1,6 @@
 from django.urls import path, include
 from . import views
 
-
-
-
-
 from .views import Home, Profile, Post, ProfileDetail, ProfileUpdate
 
 

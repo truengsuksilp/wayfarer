@@ -3,11 +3,7 @@
 @import "./_layouts/nav";
 @import "./_layouts/modal";
 @import "./_pages/home";
-
-body{
-    background-color: #050719;
-}
-
+@import "./_pages/profile";
 h1 {
     color: $light-purple;
 }
@@ -21,6 +17,7 @@ div {
 }
 
 #profile_page{
+    background-color: #050719 !important;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -57,9 +54,11 @@ div {
 }
 
 .posting {
+    padding: 6px;
     margin: 5px 0;
     border: 2px solid $light-purple;
     border-radius:5px;
+    min-height: 7vh;
 }
 
 .profile_pic{

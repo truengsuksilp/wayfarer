@@ -86,6 +86,8 @@ h1.home-main-title {
     width: 30px;
     height: 30px; } }
 
+.posting {
+  min-height: 30vh; }
 body {
   background-color: #050719; }
 
@@ -99,6 +101,7 @@ div {
   color: #c7cadc; }
 
 #profile_page {
+  background-color: #050719 !important;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
@@ -130,9 +133,11 @@ div {
   border-radius: 5px; }
 
 .posting {
+  padding: 6px;
   margin: 5px 0;
   border: 2px solid #836faf;
-  border-radius: 5px; }
+  border-radius: 5px;
+  min-height: 7vh; }
 
 .profile_pic {
   max-width: 60%;

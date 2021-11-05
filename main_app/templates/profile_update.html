@@ -4,6 +4,8 @@
 {% block title %} Update {% endblock %}
 
 {% block content %}
+<body>
+    
 
 <h1 class="profile_header">
 Update Profile
@@ -16,11 +18,11 @@ Update Profile
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Username</label>
-                    <input type="text" name="name" class="form-control" placeholder="{{profile.name}}">
+                    <input type="text" name="name" class="form-control" placeholder="Input Username">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Location</label>
-                    <input type="text" name="current_city" class="form-control" placeholder="{{profile.current_city}}">  
+                    <input type="text" name="current_city" class="form-control" placeholder="Input your current city">  
                 </div>
                     <button type="submit" value"Submit" class="btn btn-outline-primary">Update</button>
             </form>
@@ -43,4 +45,5 @@ Update Profile
     </div>
 </div>
 
+</body>
 {% endblock %}
