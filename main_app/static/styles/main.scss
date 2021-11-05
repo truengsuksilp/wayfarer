@@ -91,5 +91,12 @@ div{
     .hide_when_small{
         display: none;
     }
-
 } 
+
+@media only screen and (max-width: 720px){
+    #profile_box {
+        max-width: 90vw;
+        display: flex;
+        margin: 5%;
+    }
+}
