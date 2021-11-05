@@ -3,10 +3,6 @@
 @import "./_layouts/nav";
 @import "./_pages/home";
 
-body{
-    background-color: #050719;
-}
-
 h1 {
     color: $light-purple;
 }
@@ -20,6 +16,7 @@ div {
 }
 
 #profile_page{
+    background-color: #050719 !important;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
