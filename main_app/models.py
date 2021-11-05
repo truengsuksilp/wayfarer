@@ -17,7 +17,7 @@ class City (Model):
     name = CharField(max_length=250)
     country = CharField(max_length=250)
     picture = CharField(max_length = 1000)
-    user = ForeignKey(User, on_delete=models.CASCADE,related_name="cities")
+    
 
 class Post (Model): 
     title = CharField(max_length = 500)

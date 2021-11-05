@@ -1,7 +1,9 @@
 @import "./_variables/colors";
 
 // $light-purple: #836faf;
-
+body{
+    background-color: black;
+}
 h1 {
     color: $light-purple;
 }
