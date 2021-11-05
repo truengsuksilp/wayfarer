@@ -48,13 +48,13 @@ Profile
 
 
 
-<form>
+<form method="POST" action="{% url 'profile_update' %}">
   <div class="form-group">
-    <label for="formGroupExampleInput">Example label</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+    <label for="profile_update">Username</label>
+    <input type="text" class="input" id="profile_name" placeholder="{{profile.name}}">
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">Another label</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+    <label for="profile_current_city">Current Location</label>
+    <input type="text" class="input" id="profile_current_city" placeholder="{{profile.current.city}}">
   </div>
 </form>
