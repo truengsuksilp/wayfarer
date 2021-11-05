@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from main_app.models import Profile, Post, City
 # TODO Add Models
+# TODO Add Auth 
 
 # import the class that will handle basic views
 from django.views import View
