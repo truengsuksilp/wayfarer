@@ -126,7 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 SASS_PROCESSOR_ROOT = STATIC_ROOT
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/profile/<int:pk>/'
 LOGOUT_REDIRECT_URL = '/'
 
 # SASS Dependencies
