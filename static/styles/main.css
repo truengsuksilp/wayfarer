@@ -61,15 +61,11 @@ h1.home-main-title {
     width: 30px;
     height: 30px; } }
 
+body {
+  background-color: #050719; }
+
 h1 {
   color: #836faf; }
-
-h1.home-main-title {
-  color: #c7cadc;
-  background-color: #050719;
-  text-align: center;
-  margin: 0px;
-  padding: 30px 0px 10px 0px; }
 
 p {
   color: #c7cadc; }
@@ -122,6 +118,20 @@ div {
 .member {
   font-size: small; }
 
+.post_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vw;
+  min-height: 60vh;
+  padding: 15px;
+  margin: 10px;
+  margin-right: 7vw;
+  border: 5px solid #836faf;
+  border-radius: 5px; }
+  .post_body img {
+    max-width: 50px; }
+
 @media only screen and (max-width: 420px) {
   #profile_box {
     max-width: 90vw;
@@ -151,10 +161,6 @@ article {
     width: 100vw; }
 
 @media only screen and (min-width: 320px) {
-  main {
-    padding: 15px;
-    background-color: #050719;
-    color: #c7cadc; }
   h1 {
     font-size: 2rem; }
   h3 {
@@ -163,31 +169,11 @@ article {
     font-size: 0.8rem; } }
 
 @media only screen and (min-width: 480px) {
-  main {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px; }
-    main .home-cards {
-      padding: 0px 20px; }
   h1 {
     font-size: 2.5rem; }
   h3 {
     font-size: 2.0rem; }
   p {
     font-size: 1.0rem; } }
-
-@media only screen and (min-width: 720px) {
-  .navbar-brand {
-    font-size: 2.0rem;
-    margin-left: 10px;
-    margin-right: 0px; }
-  .auth-buttons {
-    font-size: 1.5rem;
-    margin: 0px 10px; }
-  .justify-content-end {
-    margin-right: 30px; }
-  .carousel-control-prev-icon, .carousel-control-next-icon {
-    width: 30px;
-    height: 30px; } }
 
 /*# sourceMappingURL=main.css.map */

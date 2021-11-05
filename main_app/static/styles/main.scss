@@ -72,6 +72,22 @@ div {
     font-size: small;
 }
 
+.post_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100vw;
+    min-height: 60vh;
+    padding: 15px;
+    margin: 10px;
+    margin-right: 7vw;
+    border: 5px solid $light-purple;
+    border-radius: 5px;
+    img {
+        max-width: 50px;
+    }
+}
+
 @media only screen and (max-width: 420px) {
     #profile_box {
         max-width: 90vw;

@@ -60,7 +60,7 @@ class Signup(View):
             profile = Profile.objects.create(name=name, current_city=city, profile_picture=image, user=user)
 
             login(request, user)
-            return redirect("profile", pk=profile.pk)
+            return redirect("profile_detail", pk=profile.pk)
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)

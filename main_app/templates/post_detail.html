@@ -4,12 +4,11 @@
 
 {% block content %}
 
-<img src="{{ post.profile.profile_pic }}" alt="">
-
-<h1>{{ post.title }}</h1>
-
-<p>by {{ post.profile.name }}</p>
-
-<p>{{ post.content }}</p>
+<div class="post_body">
+    <img src="{{ post.profile.profile_picture }}" alt="">
+    <h1>{{ post.title }}</h1>
+    <p>by {{ post.profile.name }}</p>
+    <p>{{ post.content }}</p>
+</div>
 
 {% endblock %}
