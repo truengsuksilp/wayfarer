@@ -1,20 +1,26 @@
 @import "./_variables/colors";
 
-// $light-purple: #836faf;
 * {
     box-sizing: border-box;
 }
-body{
-    background-color: $dark-black;
-}
+
 h1 {
     color: $light-purple;
 }
+
+h1.home-main-title {
+    color: #c7cadc;
+    background-color: #050719;
+    text-align: center;
+    margin: 0px;
+    padding: 30px 0px 10px 0px;
+}
+
 p {
     color: $light-gray;   
 }
 
-div{
+div {
     color: $light-gray;
 }
 
@@ -98,5 +104,80 @@ div{
         max-width: 90vw;
         display: flex;
         margin: 5%;
+    }
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    max-height: 50vh;
+    overflow: hidden;
+    img {
+        width: 100vw;
+    }
+}
+
+
+@media only screen and (min-width: 320px) {    
+    main {
+        padding: 15px;  
+        background-color: #050719; 
+        color: #c7cadc;
+    }
+
+    h1 {
+        font-size: 2rem; 
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    main {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        .home-cards {
+            padding: 0px 20px;
+        }
+    }
+
+    h1 {
+        font-size: 2.5rem
+    }
+
+    h3 {
+        font-size: 2.0rem;
+    }
+
+    p {
+        font-size: 1.0rem;
+    }
+}
+
+@media only screen and (min-width: 720px) {    
+    .navbar-brand {
+        font-size: 2.0rem; 
+        margin-left: 10px;
+        margin-right: 0px;
+    }
+
+    .auth-buttons {
+        font-size: 1.5rem;
+        margin: 0px 10px;
+    }
+    .justify-content-end {
+        margin-right: 30px;
+    }
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        width: 30px;
+        height: 30px;
     }
 }
