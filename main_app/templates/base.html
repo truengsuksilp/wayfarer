@@ -57,6 +57,8 @@
         </ul>
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item active">
+              
+
                 <a class="nav-link auth-buttons" href="/profile/{{user.profile.id}}" id="user-welcome"> 
                     <img src="{{user.profile.profile_picture}}" alt="profile_pic"> 
                 </a>
@@ -67,9 +69,8 @@
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link auth-buttons" href=""> 
-                    Logout 
-                </a>
+               <a class="nav-link auth-buttons" href="{% url 'logout' %}?next=/"> Logout <span class="sr-only">(current)</span></a>
+
             </li>
         </ul>
     </div>
