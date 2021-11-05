@@ -41,19 +41,26 @@ class Post(DetailView):
 
 # Signup view
 class Signup(View):
-    def get(self, request):
+    def get(self, request, **kwargs):
         form = UserCreationForm()
         context = {'form': form}
         return render(request, "registration/signup.html", context)
 
     def post(self, request):
         form = UserCreationForm(request.POST)
+        name = request.POST.get("name")
+        city = request.POST.get("current_city")
+        image = request.POST.get("profile_picture")
+        
+        
+
 
         if form.is_valid():
             user = form.save()
+            profile = Profile.objects.create(name=name, current_city=city, profile_picture=image, user=user)
 
             login(request, user)
-            return redirect("profile")
+            return redirect("profile", pk=profile.pk)
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)

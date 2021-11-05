@@ -1,6 +1,10 @@
 from django.urls import path
 from . import views
+
+
+
 from .views import Home, Profile, Post, ProfileDetail, ProfileUpdate
+
 
 urlpatterns = [
     path('', Home.as_view(), name='home'),
