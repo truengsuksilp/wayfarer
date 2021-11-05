@@ -23,6 +23,9 @@ Wiki
 Security
 Insights
 Settings   
+# sass css 
+*.css.map
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

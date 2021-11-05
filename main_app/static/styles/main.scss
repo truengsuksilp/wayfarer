@@ -3,6 +3,10 @@
 @import "./_layouts/nav";
 @import "./_pages/home";
 
+body{
+    background-color: #050719;
+}
+
 h1 {
     color: $light-purple;
 }
@@ -88,8 +92,26 @@ div {
     .hide_when_small{
         display: none;
     }
-
 } 
+
+@media only screen and (max-width: 720px){
+    #profile_box {
+        max-width: 90vw;
+        display: flex;
+        margin: 5%;
+    }
+}
+
+
+article {
+    display: flex;
+    justify-content: center;
+    max-height: 50vh;
+    overflow: hidden;
+    img {
+        width: 100vw;
+    }
+}
 
 
 @media only screen and (min-width: 320px) {    
