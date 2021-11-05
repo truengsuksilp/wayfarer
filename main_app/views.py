@@ -1,4 +1,6 @@
+from django.db.models.base import Model
 from django.shortcuts import render, redirect
+from django.views import View
 from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -18,14 +20,15 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 class Home(TemplateView):
     template_name = 'home.html'
 
-class Profile(DetailView):
+class ProfileDetail(DetailView):
     model = Profile
     template_name = "profile_detail.html"
-
-    def get_context(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["post"] = Post.objects.filter(user = Profile)
-        return context
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['name', 'current_city']
+    template_name = "profile_update.html"
+    def get_success_url(self):
+        return reverse("profile_detail", kwargs={'pk': self.object.pk})
 
 class Post(DetailView):
     model = Post
