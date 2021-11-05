@@ -1,9 +1,104 @@
 @import "./_variables/colors";
 
-body {
-    background-color: #050719;
-    font-size: 12px;
+* {
+    box-sizing: border-box;
 }
+
+h1 {
+    color: $light-purple;
+}
+
+h1.home-main-title {
+    color: #c7cadc;
+    background-color: #050719;
+    text-align: center;
+    margin: 0px;
+    padding: 30px 0px 10px 0px;
+}
+
+p {
+    color: $light-gray;   
+}
+
+div {
+    color: $light-gray;
+}
+
+#profile_page{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#profile_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 25vw;
+    min-height: 60vh;
+    padding: 15px;
+    margin: 10px;
+    margin-right: 7vw;
+    border: 5px solid $light-purple;
+    border-radius: 5px;
+}
+
+#post_box {
+    margin-top: 10vh;
+    max-width: 75vw;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.profile_header{
+    margin-left:25px;
+}
+
+.post_picture{
+    max-height: 5vh;
+    max-width: 5vh;
+    border-radius: 5px;
+}
+
+.posting {
+    margin: 5px 0;
+    border: 2px solid $light-purple;
+    border-radius:5px;
+}
+
+.profile_pic{
+    max-width: 60%;
+    max-height: 60%;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.member{
+    font-size: small;
+}
+
+@media only screen and (max-width: 420px) {
+    #profile_box {
+        max-width: 90vw;
+        display: flex;
+        margin: 5%;
+    }
+
+    .profile_pic{
+        min-width: 60%;
+        justify-content: center;
+    }
+    
+    #post_box {
+        max-width: 95vw;
+        display: flex;
+    }
+
+    .hide_when_small{
+        display: none;
+    }
+
+} 
 
 article {
     display: flex;
@@ -13,14 +108,6 @@ article {
     img {
         width: 100vw;
     }
-}
-
-h1 {
-    color: #c7cadc;
-    background-color: #050719;
-    text-align: center;
-    margin: 0px;
-    padding: 30px 0px 10px 0px;
 }
 
 
