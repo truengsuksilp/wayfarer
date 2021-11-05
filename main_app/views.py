@@ -14,3 +14,9 @@ class Home(TemplateView):
 class Profile(DetailView):
     model = Profile
     template_name = "profile_detail.html"
+
+    def get_context(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["post"] = Post.objects.filter(user = Profile)
+        return context
+
