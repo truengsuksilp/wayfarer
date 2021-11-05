@@ -5,8 +5,8 @@
 {% block content %}
 
 <div class="post_body">
-    <img src="{{ post.profile.profile_picture }}" alt="">
     <h1>{{ post.title }}</h1>
+    <img src="{{ post.profile.profile_picture }}" alt="">
     <p>by {{ post.profile.name }}</p>
     <p>{{ post.content }}</p>
 </div>
