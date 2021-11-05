@@ -1,4 +1,75 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #050719; }
+
 h1 {
   color: #836faf; }
+
+p {
+  color: #c7cadc; }
+
+div {
+  color: #c7cadc; }
+
+#profile_page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+#profile_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 25vw;
+  min-height: 60vh;
+  padding: 15px;
+  margin: 10px;
+  margin-right: 7vw;
+  border: 5px solid #836faf;
+  border-radius: 5px; }
+
+#post_box {
+  margin-top: 10vh;
+  max-width: 75vw;
+  display: flex;
+  justify-content: flex-end; }
+
+.profile_header {
+  margin-left: 25px; }
+
+.post_picture {
+  max-height: 5vh;
+  max-width: 5vh;
+  border-radius: 5px; }
+
+.posting {
+  margin: 5px 0;
+  border: 2px solid #836faf;
+  border-radius: 5px; }
+
+.profile_pic {
+  max-width: 60%;
+  max-height: 60%;
+  border-radius: 50%;
+  justify-content: center; }
+
+.member {
+  font-size: small; }
+
+@media only screen and (max-width: 420px) {
+  #profile_box {
+    max-width: 90vw;
+    display: flex;
+    margin: 5%; }
+  .profile_pic {
+    min-width: 60%;
+    justify-content: center; }
+  #post_box {
+    max-width: 95vw;
+    display: flex; }
+  .hide_when_small {
+    display: none; } }
 
 /*# sourceMappingURL=main.css.map */
