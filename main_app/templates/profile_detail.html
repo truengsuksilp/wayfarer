@@ -17,7 +17,7 @@ Profile
         <span>Member since: </span>
         <p class="member">{{profile.join_date}}</p>
         <span>Currently in: {{profile.current_city}}</span>
-        <button type="button" class="btn btn-outline-primary">Edit Profile</button>
+        <button type="button" class="btn btn-outline-primary"><a href="{% url 'profile_update' profile.pk %} " >Edit Profile</a></button>
     </div>
     <!-- posts -->
     <div id="post_box">

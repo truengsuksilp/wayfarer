@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #050719;
+}
+
 h1 {
     color: $light-purple;
 }
@@ -106,6 +110,7 @@ div {
         margin: 5%;
     }
 }
+
 
 article {
     display: flex;

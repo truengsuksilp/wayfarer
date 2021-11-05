@@ -6,20 +6,26 @@
 {% block content %}
 
 <h1 class="profile_header">
-Profile
+Update Profile
 </h1>
 <div id="profile_page" class="container-fluid">
     <!-- user -->
-    <div id="profile_box">
-        <img class="profile_pic" src="{{profile.profile_picture}}" alt="User Image">
-        <div class="col-1"></div>
-        <span>   </span>
-        <b> <p>{{profile.name}}</p> </b>
-        <span>Member since: </span>
-        <p class="member">{{profile.join_date}}</p>
-        <span>Currently in: {{profile.current_city}}</span>
-        <button type="button" class="btn btn-outline-primary">Edit Profile</button>
+<div id="profile_box">
+    <img class="profile_pic" src="{{profile.profile_picture}}" alt="User Image">
+        <form method="post" action="{% url 'profile_update' profile.pk %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" name="name" class="form-control" placeholder="{{profile.name}}">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Location</label>
+                <input type="text" name="current_city" class="form-control" placeholder="{{profile.current_city}}">  
+            </div>
+                <button type="submit" value"Submit" class="btn btn-outline-primary">Update</button>
+        </form>
     </div>
+</div>
     <!-- posts -->
     <div id="post_box">
         <div>
@@ -38,23 +44,4 @@ Profile
     </div>
 </div>
 
-
-
-
-
 {% endblock %}
-
-
-
-
-
-<form method="POST" action="{% url 'profile_update' %}">
-  <div class="form-group">
-    <label for="profile_update">Username</label>
-    <input type="text" class="input" id="profile_name" placeholder="{{profile.name}}">
-  </div>
-  <div class="form-group">
-    <label for="profile_current_city">Current Location</label>
-    <input type="text" class="input" id="profile_current_city" placeholder="{{profile.current.city}}">
-  </div>
-</form>
