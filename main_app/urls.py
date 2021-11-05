@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import Home, Post, ProfileDetail, ProfileUpdate
 
+
 urlpatterns = [
     path('', Home.as_view(), name='home'),
     path('accounts/signup/', views.Signup.as_view(), name='signup'),

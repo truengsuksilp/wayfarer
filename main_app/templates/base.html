@@ -32,7 +32,7 @@
 
 <!-- Nav Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'home' %}">
         <i class="fas fa-glass-martini"></i>
     </a>
     <button 
@@ -50,12 +50,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#"> Tripelocity</a>
+                <a class="nav-link" href="/"> 
+                    Tripelocity
+                </a>
             </li>
         </ul>
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item active">
-                <a class="nav-link auth-buttons" href=""> Logout <span class="sr-only">(current)</span></a>
+                <a class="nav-link auth-buttons" href="/profile/{{user.profile.id}}" id="user-welcome"> 
+                    <img src="{{user.profile.profile_picture}}" alt="profile_pic"> 
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link auth-buttons" href="/profile/{{user.profile.id}}" id="user-welcome"> 
+                    Welcome: {{user.profile.name}} 
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link auth-buttons" href=""> 
+                    Logout 
+                </a>
             </li>
         </ul>
     </div>
@@ -65,12 +79,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#"> Tripelocity</a>
+                <a class="nav-link" href="/"> Tripelocity</a>
             </li>
         </ul>
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item active">
-                <a class="nav-link auth-buttons" href="{% url 'signup'%}"> Signup <span class="sr-only">(current)</span></a>
+                <a class="nav-link auth-buttons" href="{% url 'signup'%}"> Signup</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link auth-buttons" href="{% url 'login'%}"> Login </a>
