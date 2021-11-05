@@ -1,0 +1,4 @@
+id,title,content,create_at,city_id,user_id
+1,London Bridge,London Bridge is Falling Down,2021-11-04 18:57:42.517205-07,1,1
+2,French Submarines,We all live in a yellow submarine,2021-11-04 18:57:42.517205-07,2,1
+3,SF Rocks!,We are rocking the bootcamp!,2021-11-04 18:57:42.517205-07,3,1
