@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Cities {% endblock %}
+
+{% block content %}
+
+<!-- selected city info-->
+    <h2>{{city.name}}, {{city.country}}</h2>
+    <img src="{{city.picture}}" alt="city image">
+
+<!-- list of posts -->
+    <ul class="list-group">
+        {% for post in city.posts.all %}
+        <li class="list-group-item">
+            <a href="{% url 'post_detail' post.pk %}" class="font-weight-bold">{{post.title}}: </a>
+            <p>{{post.content}}</p>
+        </li> 
+        {% endfor %}
+    </ul>
+
+
+<!-- list of cities -->
+    <ul class="list-group">
+        {% for city in cities %}
+        <a href="{% url 'city_detail' city.pk %}"><li class="list-group-item">
+            <span>{{city.name}},</span>
+            <span>{{city.country}}</span>
+        </li></a>
+        {% endfor %}
+    
+    </ul>
+
+{% endblock %}
