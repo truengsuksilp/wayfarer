@@ -30,7 +30,7 @@ class ProfileUpdate(UpdateView):
     def get_success_url(self):
         return reverse("profile_detail", kwargs={'pk': self.object.pk})
 
-class Post(DetailView):
+class PostDetail(DetailView):
     model = Post
     template_name = "post_detail.html"
 
@@ -71,3 +71,10 @@ class CityDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['cities'] = City.objects.all()
         return context
+
+class PostDelete(DeleteView):
+    model = Post
+    template_name = "post_delete_confirm.html"
+
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.object.city.pk})

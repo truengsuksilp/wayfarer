@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block title %} Delete {% endblock %}
+
+{% comment %} This html with hopefully end up in a model {% endcomment %}
+
+{% block content %}
+
+<h1>Are you sure you would like to delete your post : {{post.title}} </h1>
+<form method="post">
+{% csrf_token %}
+<button type="submit" class="btn btn-danger">Delete</button>
+<a href=" {% url 'city_detail' post.city.pk %}  "><button type="button" class="btn btn-primary">Cancel</button></a>
+</form>
+
+{% endblock %}
