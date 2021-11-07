@@ -1,0 +1,92 @@
+main.city-detail {
+    display: grid;
+    grid-template-columns: 30vw 70vw;
+    grid-template-areas: 
+        "aside article";
+    margin: 20px 20px;
+
+    aside {
+        grid-area: aside;
+        background-color: $light-blue;
+        padding: 20px;
+        border-radius: 2%;   
+    }
+    article {
+        grid-area: article;
+        margin: 0px 40px;
+        padding: 20px;
+        border-radius: 2%;
+        background-color: $light-blue;
+    }
+    h1 {
+        color: white;
+    }
+}
+
+aside.city-detail {
+    li {
+        margin: 10px 0px;
+    }
+}
+
+article.city-detail {
+    display: grid;
+    grid-template-rows: 250px 100px 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+        "city-profile city-img"
+        "city-posts-header city-posts-create" 
+        "posts posts";
+
+    div {
+        grid-area: city-profile;
+    }
+
+    img {
+        grid-area: city-img;
+        justify-self: end;
+        border-radius: 5%;
+
+        width: 320px;
+        height: calc(320*9/16px);
+    }
+
+    h2 {
+        grid-area: city-posts-header;
+    }
+
+    a {
+        grid-area: city-posts-create;
+        justify-self: end;
+    }
+
+    ul {
+        grid-area: posts;
+    }
+
+    li {
+        margin: 10px 0px;
+    }
+}
+
+li.post-card {
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-template-areas: 
+        "title ellipsis"
+        "content content";
+    a {
+        grid-area: title;
+        justify-self: start;
+        font-size: 1.5rem;
+    }
+    div.dropdown {
+        grid-area: ellipsis;
+        width: 60px;
+        height: 60px;
+    }
+    p {
+        grid-area: content;
+        color: $dark-black;
+    }
+}

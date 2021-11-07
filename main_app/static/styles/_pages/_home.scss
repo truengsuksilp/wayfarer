@@ -1,5 +1,5 @@
 // Carousel
-article {
+article.carousel {
     display: flex;
     justify-content: center;
     max-height: 50vh;
@@ -8,6 +8,7 @@ article {
         width: 100vw;
     }    
 }
+
 
 h1.home-main-title {
     color: $light-gray;
@@ -18,7 +19,7 @@ h1.home-main-title {
 }
 
 @media only screen and (min-width: 320px) {    
-    main {
+    main.home-main {
         padding: 15px;  
         background-color: $dark-black; 
         color: $light-gray;
@@ -26,7 +27,7 @@ h1.home-main-title {
 }
 
 @media only screen and (min-width: 420px) {
-    main {
+    main.home-main {
         display: flex;
         justify-content: space-around;
         padding: 20px;
