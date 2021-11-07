@@ -92,6 +92,18 @@ h1.home-main-title {
 .posting {
   min-height: 30vh; }
 
+.edit {
+  margin-top: 3vh; }
+
+.user_update {
+  display: flex;
+  flex-direction: column; }
+
+.update {
+  padding: 6px 12px 6px 12px;
+  max-width: 78.281px;
+  align-self: center; }
+
 main.city-detail {
   display: grid;
   grid-template-columns: 30vw 70vw;
@@ -186,6 +198,9 @@ div {
   display: flex;
   justify-content: flex-end; }
 
+#user_img {
+  border-radius: 5px; }
+
 .profile_header {
   margin-left: 25px; }
 
@@ -206,6 +221,9 @@ div {
   max-height: 60%;
   border-radius: 50%;
   justify-content: center; }
+
+.user_img {
+  border-radius: 5px; }
 
 .member {
   font-size: small; }
