@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # model imports from django 
 from django.db.models import Model, CharField, ForeignKey, TextField, DateTimeField
 # Create your models here.
-class Profile(Model):
+class Profile (Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     join_date = DateTimeField(auto_now_add=True)
     name = CharField(max_length=100)
