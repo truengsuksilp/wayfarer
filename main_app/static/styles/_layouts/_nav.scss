@@ -1,4 +1,8 @@
 // Nav right items
+nav {
+    grid-area: nav;
+}
+
 .nav-item {
     display: flex;
     align-items: center;
