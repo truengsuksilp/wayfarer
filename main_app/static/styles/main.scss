@@ -1,8 +1,11 @@
 @import "./_variables/colors";
 @import "./_base/normalize";
 @import "./_layouts/nav";
+@import "./_layouts/modal";
 @import "./_pages/home";
 @import "./_pages/profile";
+@import "./_pages/city";
+
 h1 {
     color: $light-purple;
 }
@@ -115,18 +118,6 @@ div {
         margin: 5%;
     }
 }
-
-
-article {
-    display: flex;
-    justify-content: center;
-    max-height: 50vh;
-    overflow: hidden;
-    img {
-        width: 100vw;
-    }
-}
-
 
 @media only screen and (min-width: 320px) {    
     h1 {
