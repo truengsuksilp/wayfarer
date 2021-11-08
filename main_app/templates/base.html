@@ -1,6 +1,5 @@
 {% load sass_tags %}
 {% load static %}
-{% load days_from %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,13 +90,8 @@
             <li class="nav-item active">
                 <a class="nav-link auth-buttons signup-modal" data-toggle="modal" data-target="#signup-modal" href=""> Signup </a>
             </li>
-
-
-<!-- sign up modal -->
-
-
-
- <div class="modal signup-modal" tabindex="-1" role="dialog" id="signup-modal">
+                <!-- sign up modal -->
+                <div class="modal signup-modal" tabindex="-1" role="dialog" id="signup-modal">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -107,34 +101,23 @@
                                 </button>
                             </div>
                             <div class="modal-body" id="modal-body-override">
-
-                                <!-- Signup FORM -->
-                    <h1 class="title">Signup</h1>
-
-                    <form action="{% url 'signup' %}" method="POST">
-                        {% csrf_token %}
-
-                        {{ form.as_p }}
-
-                        <p><label for="name">Display Name</label>
-                        <input type="text" name="name" placeholder="Name"></p>
-                        <p><label for="current_city">Current City</label>
-                        <input type="text" name="current_city" placeholder="City"></p>
-                        <p><label for="profile_picture">Profile picture</label>
-                        <input type="text" name="profile_picture" value="https://media1.thehungryjpeg.com/thumbs2ori_3686943_09tpyqe6r67ba765aheypmgvqo0vltfraf4ru77u_plane-icon.jpg" placeholder="Image"></p>
-
-                        <input class="button" type="submit" value="Submit">
-                    
-                    </form>
-
+                            <!-- Signup FORM -->
+                            <h1 class="title">Signup</h1>
+                                <form action="{% url 'signup' %}" method="POST">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <p><label for="name">Display Name</label>
+                                    <input type="text" name="name" placeholder="Name"></p>
+                                    <p><label for="current_city">Current City</label>
+                                    <input type="text" name="current_city" placeholder="City"></p>
+                                    <p><label for="profile_picture">Profile picture</label>
+                                    <input type="text" name="profile_picture" value="https://media1.thehungryjpeg.com/thumbs2ori_3686943_09tpyqe6r67ba765aheypmgvqo0vltfraf4ru77u_plane-icon.jpg" placeholder="Image"></p>
+                                    <input class="button" type="submit" value="Submit">
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
             <li class="nav-item active">
                 <a class="nav-link auth-buttons" href="{% url 'login'%}" data-toggle="modal" data-target="#exampleModal"> Login </a>
             </li>
