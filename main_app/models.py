@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # model imports from django 
-from django.db.models import Model, CharField, ForeignKey, TextField, DateTimeField
+from django.db.models import Model, CharField, ForeignKey, TextField, DateTimeField, SlugField
 # Create your models here.
 class Profile (Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -18,6 +18,7 @@ class Profile (Model):
 
 class City (Model):
     name = CharField(max_length=250)
+    slug = SlugField(max_length=100, default='no_slugs')
     country = CharField(max_length=250)
     picture = CharField(max_length = 1000)
 

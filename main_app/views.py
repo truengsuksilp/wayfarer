@@ -6,7 +6,8 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from main_app.models import Profile, Post, City
-# TODO Add Models
+
+from datetime import datetime
 # TODO Add Auth 
 
 # import the class that will handle basic views
@@ -17,12 +18,14 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 # Create your views here.
 
+
 class Home(TemplateView):
     template_name = 'home.html'
 
 class ProfileDetail(DetailView):
     model = Profile
     template_name = "profile_detail.html"
+
 class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['name', 'current_city']
@@ -70,6 +73,7 @@ class CityDetail(DetailView):
     def get_context_data(self, **kwargs): 
         context = super().get_context_data(**kwargs)
         context['cities'] = City.objects.all()
+        context['now'] = datetime.now()
         return context
 
 class PostDelete(DeleteView):

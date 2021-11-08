@@ -34,11 +34,18 @@
         <ul class="list-group">
             {% for post in city.posts.all %}
             <li class="post-card list-group-item">
-                <a href="{% url 'post_detail' post.pk %}" class="post-title font-weight-bold">
+                <div class="post-header">
                     <img src="{{post.profile.profile_picture}}" alt="">
-                    {{post.title}} 
-                </a>
+                    <a href="{% url 'post_detail' post.pk %}" class="font-weight-bold">{{post.title}}</a>
+                    <p> 
+                        <strong>Published Date:</strong>
+                        {{ post.created_at.date }}
+                        
+                    </p>
+                </div>
+                
                 <p>{{post.content}}</p>
+                
                 <!-- if logic that outputs the delete and edit congtrols for only the posts associated with the logged in user-->
                 {% if post.profile == user.profile  %}
                     <div class="dropdown show">
@@ -66,4 +73,3 @@
 
 </main>
 {% endblock %}
-
