@@ -80,7 +80,7 @@ class CityDetail(DetailView):
         context['now'] = datetime.now()
         return context
 
-# @method_decorator(login_required, name='dispatch')
+@method_decorator(login_required, name='dispatch')
 class PostCreate(CreateView):
     # TODO : Update to accept pk is blank
     def post(self, request, pk):
@@ -91,13 +91,13 @@ class PostCreate(CreateView):
         Post.objects.create(title=title, content=content, city=city, profile=profile)
         return redirect('city_detail', pk=pk)
 
-# @method_decorator(login_required, name='dispatch')
+@method_decorator(login_required, name='dispatch')
 class PostDelete(View):
     def post(self, request, pk):
         Post.objects.filter(pk=pk).delete()
         return redirect(request.META.get('HTTP_REFERER', '/'))
 
-# @method_decorator(login_required, name='dispatch')
+@method_decorator(login_required, name='dispatch')
 class PostUpdate(UpdateView):
     model = Post
     fields = ['title', 'content']

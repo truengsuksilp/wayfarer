@@ -178,13 +178,6 @@ h1.home-main-title {
     display: flex;
     margin: 5%; } }
 
-div.delete-post-modal .modal-body {
-  padding: 1.2rem; }
-
-div.delete-post-modal p {
-  color: black;
-  padding: 10px; }
-
 main.city-detail {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -192,14 +185,16 @@ main.city-detail {
   margin: 20px 20px; }
   main.city-detail aside {
     grid-area: aside;
-    background-color: #1c4ea3;
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #836faf 100%);
     padding: 20px;
     border-radius: 1%; }
   main.city-detail article {
     grid-area: article;
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #1c4ea3 100%);
     padding: 20px;
-    border-radius: 1%;
-    background-color: #1c4ea3; }
+    border-radius: 1%; }
   main.city-detail h1 {
     color: white;
     margin-top: 15px; }
@@ -217,6 +212,13 @@ div.post-create-modal #button-city-dropdown {
 div.post-create-modal .post-content-textarea {
   height: 30vh;
   vertical-align: top; }
+
+div.delete-post-modal .modal-body {
+  padding: 1.2rem; }
+
+div.delete-post-modal p {
+  color: black;
+  padding: 10px; }
 
 li.post-card {
   display: grid;
