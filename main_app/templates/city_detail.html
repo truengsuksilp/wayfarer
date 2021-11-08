@@ -8,10 +8,12 @@
         <h1>Cities</h1>
         <ul class="list-group">
             {% for city in cities %}
-            <a href="{% url 'city_detail' city.pk %}"><li class="list-group-item">
-                <span>{{city.name}},</span>
-                <span>{{city.country}}</span>
-            </li></a>
+            <a href="{% url 'city_detail' city.pk %}">
+                <li class="list-group-item">
+                    <img src="{{city.picture}}" alt="">
+                    <h5>{{city.name}}</h5>
+                </li>
+            </a>
             {% endfor %}
         </ul>
     </aside>
@@ -26,14 +28,27 @@
         <!-- the url will be linked to post create page when its made-->
         
         <h1 class="city-posts-header"> Posts </h2>
-        <a class="city-posts-create" href="{% url 'home' %}"><button  type="button" class="btn btn-success">  Create Post + </button></a>
+        {% comment %} <a class="city-posts-create" href="{% url 'home' %}" > {% endcomment %}
+        <a class="city-posts-create" data-toggle="modal" data-target="#post-create-modal" href="">
+            <i class="fas fa-plus"></i>
+        </a>
 
         <!-- list of posts -->
         <ul class="list-group">
             {% for post in city.posts.all %}
             <li class="post-card list-group-item">
-                <a href="{% url 'post_detail' post.pk %}" class="post-title font-weight-bold">{{post.title}} </a>
+                <div class="post-header">
+                    <img src="{{post.profile.profile_picture}}" alt="">
+                    <a href="{% url 'post_detail' post.pk %}" class="font-weight-bold">{{post.title}}</a>
+                    <p> 
+                        <strong>Published Date:</strong>
+                        {{ post.created_at.date | timesince:now }}
+                        ago
+                    </p>
+                </div>
+                
                 <p>{{post.content}}</p>
+                
                 <!-- if logic that outputs the delete and edit congtrols for only the posts associated with the logged in user-->
                 {% if post.profile == user.profile  %}
                     <div class="dropdown show">
@@ -62,3 +77,54 @@
 </main>
 {% endblock %}
 
+{% block modal %}
+
+<div class="modal post-create-modal" tabindex="-1" role="dialog" id="post-create-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create a new post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body-override">
+
+                <!-- POST FORM -->
+
+                <form action="{% url 'post_create' user.profile.pk %}" method="POST">
+                    {% csrf_token %}
+
+                    <!-- DROPDOWN: List of cities -->
+                        <!-- TODO: Add Post request to buttons-->
+                        <!-- TODO: Post name: "post-city" -->
+                        <!-- TODO: Post field: send city.pk instead of name -->
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="button-city-dropdown"> Select a City </button> 
+
+                        <div class="dropdown-menu">
+                            {% for city in cities %}
+                            <button class="dropdown-item" type="button">
+                                {{city.name}}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <p>
+                        <input type="text" name="post-title" placeholder="Enter Post Title">
+                    </p>
+                    <p>
+                        <input type="textarea" class="post-content-textarea" name="post-content" placeholder = "Enter Post Content">
+                    </p>
+                    <div class="7"> 
+                        <button type="submit" class="btn btn-primary">Post</button>  
+                    </div>                  
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
