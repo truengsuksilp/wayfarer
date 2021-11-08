@@ -46,9 +46,9 @@
                     </p>
                 </div>
                 
-                <p>{{post.content}}</p>
+                <p maxlength='5' >{{post.content}}</p>
                 
-                <!-- if logic that outputs the delete and edit congtrols for only the posts associated with the logged in user-->
+                <!-- if logic that outputs the delete and edit controls for only the posts associated with the logged in user-->
                 {% if post.profile == user.profile  %}
                     <div class="dropdown show">
                         <a class="btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,11 +56,48 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="">Edit Post</a>
-                            {% comment %} <a class="dropdown-item" href="{% url 'post_delete' post.pk %}">Delete Post</a> {% endcomment %}
+
+                            <a class="city-posts-create" data-toggle="modal" data-target="#post-edit-modal" href="">Edit Post</a>
+                         
                             <a class="dropdown-item" href="" data-toggle="modal" data-target="#delete-post-modal-{{post.pk}}">Delete Post</a>
+
                         </div>
                     </div>
+
+
+ <!-- post update modal -->
+    
+                <div class="modal post-edit-modal" tabindex="-1" role="dialog" id="post-edit-modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Post</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="modal-body-override">
+
+                                <!-- POST FORM -->
+
+                                <form action="{% url 'post_update' post.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    <p>
+                                        <input type="text" name="title" placeholder="{{ post.title }}">
+                                    </p>
+                                    <p>
+                                        <input type="textarea" class="post-content-textarea" name="content" placeholder = "{{post.content}}">
+                                    </p>
+                                    <div class="7"> 
+                                        <button type="submit" class="btn btn-primary">Update Post</button>  
+                                    </div>                  
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {% else %}
                     <!-- if the post was created by another user you get a dummy list that simple says cannot edit-->
                     <div class="dropdown show">
@@ -147,3 +184,5 @@
 </div>
 
 {% endblock %}
+
+
