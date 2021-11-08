@@ -19,101 +19,6 @@ div {
     color: $light-gray;
 }
 
-#profile_page{
-    background-color: #050719 !important;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-#profile_box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 25vw;
-    min-height: 60vh;
-    padding: 15px;
-    margin: 10px;
-    margin-right: 7vw;
-    border: 5px solid $light-purple;
-    border-radius: 5px;
-}
-
-#post_box {
-    margin-top: 10vh;
-    max-width: 75vw;
-    display: flex;
-    justify-content: flex-end;
-    
-}
-
-#user_img{
-    border-radius: 5px;
-}
-
-.profile_header{
-    margin-left:25px;
-}
-
-.post_picture{
-    max-height: 5vh;
-    max-width: 5vh;
-    border-radius: 5px;
-}
-
-.posting {
-    padding: 6px;
-    margin: 5px 0;
-    border: 2px solid $light-purple;
-    border-radius:5px;
-    min-height: 7vh;
-}
-
-.profile_pic{
-    max-width: 60%;
-    max-height: 60%;
-    border-radius: 50%;
-    justify-content: center;
-}
-
-.user_img{
-    border-radius: 5px;
-}
-
-.member{
-    font-size: small;
-}
-
-@media only screen and (max-width: 420px) {
-    #profile_box {
-        max-width: 90vw;
-        display: flex;
-        margin: 5%;
-    }
-
-    .profile_pic{
-        min-width: 60%;
-        justify-content: center;
-    }
-    
-    #post_box {
-        max-width: 95vw;
-        display: flex;
-    }
-
-    .hide_when_small{
-        display: none;
-    }
-} 
-
-@media only screen and (max-width: 720px){
-    #profile_box {
-        max-width: 90vw;
-        display: flex;
-        margin: 5%;
-    }
-}
-
 @media only screen and (min-width: 320px) {    
     h1 {
         font-size: 2rem; 
@@ -128,7 +33,7 @@ div {
     }
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 420px) {
     h1 {
         font-size: 2.5rem
     }
@@ -143,6 +48,5 @@ div {
 }
 
 @media only screen and (min-width: 720px) {    
-    // Nothing here for now
     // Code moved to _pages MOVED TO PAGES DIRECTORY
 }
