@@ -8,7 +8,7 @@
         <h1>Cities</h1>
         <ul class="list-group">
             {% for city in cities %}
-            <a href="{% url 'city_detail' city.pk %}">
+            <a href="{% url 'city_detail' city.slug %}">
                 <li class="list-group-item">
                     <img src="{{city.picture}}" alt="">
                     <h5>{{city.name}}</h5>
@@ -134,18 +134,6 @@
                         <!-- TODO: Add Post request to buttons-->
                         <!-- TODO: Post name: "post-city" -->
                         <!-- TODO: Post field: send city.pk instead of name -->
-
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="button-city-dropdown"> Select a City </button> 
-
-                        <div class="dropdown-menu">
-                            {% for city in cities %}
-                            <button class="dropdown-item" type="button">
-                                {{city.name}}
-                            </button>
-                            {% endfor %}
-                        </div>
-                    </div>
                     <p>
                         <input type="text" name="post-title" placeholder="Enter Post Title">
                     </p>
