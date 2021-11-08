@@ -4,7 +4,7 @@ from django.views import View
 from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse
+from django.urls import reverse  
 from main_app.models import Profile, Post, City
 
 from datetime import datetime
@@ -24,7 +24,7 @@ from django.utils.decorators import method_decorator
 
 class Home(TemplateView):
     template_name = 'home.html'
-
+    
 class ProfileDetail(DetailView):
     model = Profile
     template_name = "profile_detail.html"
@@ -51,7 +51,7 @@ class Signup(View):
     def get(self, request, **kwargs):
         form = UserCreationForm()
         context = {'form': form}
-        return render(request, "registration/signup.html", context)
+        return render(request, "home.html", context)
 
     def post(self, request):
         form = UserCreationForm(request.POST)
@@ -68,7 +68,7 @@ class Signup(View):
             return redirect("profile_detail", pk=profile.pk)
         else:
             context = {"form": form}
-            return render(request, "registration/signup.html", context)
+            return render(request, "home.html", context)
 
 class CityDetail(DetailView):
     model = City
