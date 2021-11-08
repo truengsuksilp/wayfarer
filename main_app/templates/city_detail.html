@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block title %} Cities {% endblock %}
+
+{% block content %}
+<main class="city-detail">
+    <!-- list of cities -->
+    <aside class="city-detail">
+        <h1>Cities</h1>
+        <ul class="list-group">
+            {% for city in cities %}
+            <a href="{% url 'city_detail' city.slug %}">
+                <li class="list-group-item">
+                    <img src="{{city.picture}}" alt="">
+                    <h5>{{city.name}}</h5>
+                </li>
+            </a>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <article class="city-detail">
+        <!-- selected city info-->
+        <div class="city-profile">
+                <h1>{{city.name}}</h1>
+                <h4>{{city.country}}</h4>
+            </div>
+        <img src="{{city.picture}}" alt="city image" class="city-img">
+        <!-- the url will be linked to post create page when its made-->
+        
+        <h1 class="city-posts-header"> Posts </h2>
+        <a class="city-posts-create" data-toggle="modal" data-target="#post-create-modal" href="">
+            <i class="fas fa-plus"></i>
+        </a>
+
+        <!-- list of posts -->
+        <ul class="list-group">
+            {% for post in city.posts.all %}
+            <li class="post-card list-group-item">
+                <div class="post-header">
+                    <img src="{{post.profile.profile_picture}}" alt="">
+                    <a href="{% url 'post_detail' post.pk %}" class="font-weight-bold">{{post.title}}</a>
+                    <p> 
+                        <strong>Published Date:</strong>
+                        {{ post.created_at.date | timesince:now }}
+                        ago
+                    </p>
+                </div>
+                
+                <p maxlength='5' >{{post.content}}</p>
+                
+                <!-- if logic that outputs the delete and edit controls for only the posts associated with the logged in user-->
+                {% if post.profile == user.profile  %}
+                    <div class="dropdown show">
+                        <a class="btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </a>
+
+                        <div class="dropdown-menu" id="post-menu" aria-labelledby="dropdownMenuLink">
+
+                            <a class="city-posts-create" data-toggle="modal" data-target="#post-edit-modal" href="">Edit Post</a>
+                         
+                            <a class="dropdown-item" href="" data-toggle="modal" data-target="#delete-post-modal-{{post.pk}}">Delete Post</a>
+
+                        </div>
+                    </div>
+
+
+ <!-- post update modal -->
+    
+                <div class="modal post-edit-modal" tabindex="-1" role="dialog" id="post-edit-modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Post</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="modal-body-override">
+
+                                <!-- POST FORM -->
+
+                                <form action="{% url 'post_update' post.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    <p>
+                                        <input type="text" name="title" placeholder="{{ post.title }}" value="{{ post.title }}">
+                                    </p>
+                                    <p>
+                                        <input type="textarea" class="post-content-textarea" name="content" placeholder = "{{post.content}}" value="{{post.content}}">
+                                    </p>
+                                    <div class="7"> 
+                                        <button type="submit" class="btn btn-primary">Update Post</button>  
+                                    </div>                  
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% else %}
+                    <!-- if the post was created by another user you get a dummy list that simple says cannot edit-->
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cannot Edit
+                        </a>
+                    </div>
+                {% endif %}
+            </li> 
+
+            <!-- Modal for Delete Post -->
+            <div class="modal fade" id="delete-post-modal-{{post.pk}}" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you would like to delete your post? 
+                </div>
+                <div class="modal-footer">
+                
+                    <!-- Delete Post -->
+                    <form action="{% url 'post_delete' post.pk %}" method="post">
+                    {% csrf_token %}
+                        <button 
+                            type="submit" 
+                            class="btn btn-danger" 
+                        >Delete
+                        </button>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            {% endfor %}
+        </ul>
+    </article>
+
+</main>
+{% endblock %}
+
+{% block modal %}
+
+<div class="modal post-create-modal" tabindex="-1" role="dialog" id="post-create-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create a new post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body-override">
+
+                <!-- POST FORM -->
+
+                <form action="{% url 'post_create' user.profile.pk %}" method="POST">
+                    {% csrf_token %}
+
+                    <!-- DROPDOWN: List of cities -->
+                        <!-- TODO: Add Post request to buttons-->
+                        <!-- TODO: Post name: "post-city" -->
+                        <!-- TODO: Post field: send city.pk instead of name -->
+                    <p>
+                        <input type="text" name="post-title" placeholder="Enter Post Title">
+                    </p>
+                    <p>
+                        <input type="textarea" class="post-content-textarea" name="post-content" placeholder = "Enter Post Content">
+                    </p>
+                    <div class="7"> 
+                        <button type="submit" class="btn btn-primary">Post</button>  
+                    </div>                  
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

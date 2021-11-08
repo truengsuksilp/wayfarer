@@ -1,2 +1,2 @@
-user,join_date,name,current_city,profile_picture,user_id
-1,2021-11-04 18:57:42.517205-07,Queen,San Francisco,https://media.giphy.com/media/4PUjcUBXIzQYfI8iVa/giphy.gif,1
+user,join_date,name,slug,current_city,profile_picture,user_id
+1,11/7/21 16:33,Octocat,octa,San Francisco,https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png,1
