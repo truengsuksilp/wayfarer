@@ -28,7 +28,6 @@
         <!-- the url will be linked to post create page when its made-->
         
         <h1 class="city-posts-header"> Posts </h2>
-        {% comment %} <a class="city-posts-create" href="{% url 'home' %}" > {% endcomment %}
         <a class="city-posts-create" data-toggle="modal" data-target="#post-create-modal" href="">
             <i class="fas fa-plus"></i>
         </a>
@@ -58,7 +57,8 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="">Edit Post</a>
-                            <a class="dropdown-item" href="{% url 'post_delete' post.pk %}">Delete Post</a>
+                            {% comment %} <a class="dropdown-item" href="{% url 'post_delete' post.pk %}">Delete Post</a> {% endcomment %}
+                            <a class="dropdown-item" href="" data-toggle="modal" data-target="#delete-post-modal-{{post.pk}}">Delete Post</a>
                         </div>
                     </div>
                 {% else %}
@@ -70,6 +70,37 @@
                     </div>
                 {% endif %}
             </li> 
+
+            <!-- Modal for Delete Post -->
+            <div class="modal fade" id="delete-post-modal-{{post.pk}}" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you would like to delete your post? 
+                </div>
+                <div class="modal-footer">
+                
+                    <!-- Delete Post -->
+                    <form action="{% url 'post_delete' post.pk %}" method="post">
+                    {% csrf_token %}
+                        <button 
+                            type="submit" 
+                            class="btn btn-danger" 
+                        >Delete
+                        </button>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
             {% endfor %}
         </ul>
     </article>
@@ -126,5 +157,12 @@
         </div>
     </div>
 </div>
+
+{% endblock %}
+
+
+{% block modal_delete_post %}
+
+
 
 {% endblock %}

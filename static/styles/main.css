@@ -92,13 +92,6 @@ h1.home-main-title {
 .posting {
   min-height: 30vh; }
 
-div.post-create-modal #button-city-dropdown {
-  border: 1px solid black;
-  margin-bottom: 10px; }
-
-div.post-create-modal .post-content-textarea {
-  height: 30vh;
-  vertical-align: top; }
 .edit {
   margin-top: 3vh; }
 
@@ -135,6 +128,14 @@ main.city-detail {
     margin: 15px 15px 0px 0px;
     border-radius: 50%;
     text-align: center; }
+
+div.post-create-modal #button-city-dropdown {
+  border: 1px solid black;
+  margin-bottom: 10px; }
+
+div.post-create-modal .post-content-textarea {
+  height: 30vh;
+  vertical-align: top; }
 
 li.post-card {
   display: grid;
