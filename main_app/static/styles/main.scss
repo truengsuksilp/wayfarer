@@ -45,6 +45,11 @@ div {
     justify-content: flex-end;
     
 }
+
+#user_img{
+    border-radius: 5px;
+}
+
 .profile_header{
     margin-left:25px;
 }
@@ -68,6 +73,10 @@ div {
     max-height: 60%;
     border-radius: 50%;
     justify-content: center;
+}
+
+.user_img{
+    border-radius: 5px;
 }
 
 .member{
