@@ -90,3 +90,12 @@ class PostDelete(DeleteView):
 
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.city.pk})
+
+class PostUpdate(UpdateView):
+    model = Post
+    fields = ['title', 'content']
+    template_name = "city_detail.html"
+
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.object.city.pk})
+
