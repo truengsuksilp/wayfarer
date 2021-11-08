@@ -212,6 +212,9 @@ li.post-card {
     article.city-detail ul {
       grid-area: posts; } }
 
+#post-menu {
+  margin-right: 7vw; }
+
 .post_body {
   display: flex;
   flex-direction: column;

@@ -84,8 +84,16 @@ class PostCreate(CreateView):
         profile = request.user.profile
         Post.objects.create(title=title, content=content, city=city, profile=profile)
         return redirect('city_detail', pk=pk)
-
 class PostDelete(View):
     def post(self, request, pk):
         Post.objects.filter(pk=pk).delete()
         return redirect(request.META.get('HTTP_REFERER', '/'))
+class PostUpdate(UpdateView):
+    model = Post
+    fields = ['title', 'content']
+    template_name = "city_detail.html"
+
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.object.city.pk})
+
+
