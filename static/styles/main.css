@@ -104,14 +104,6 @@ h1.home-main-title {
   max-width: 78.281px;
   align-self: center; }
 
-div.post-create-modal #button-city-dropdown {
-  border: 1px solid black;
-  margin-bottom: 10px; }
-
-div.post-create-modal .post-content-textarea {
-  height: 30vh;
-  vertical-align: top; }
-
 main.city-detail {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -211,6 +203,9 @@ li.post-card {
       align-self: center; }
     article.city-detail ul {
       grid-area: posts; } }
+
+#post-menu {
+  margin-right: 7vw; }
 
 .post_body {
   display: flex;
