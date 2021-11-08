@@ -72,17 +72,21 @@
             </li> 
 
             <!-- Modal for Delete Post -->
-            <div class="modal fade" id="delete-post-modal-{{post.pk}}" tabindex="-1" role="dialog">
+            <div class="modal fade delete-post-modal" id="delete-post-modal-{{post.pk}}" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+                    <h5 class="modal-title">Delete Post</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you would like to delete your post? 
+                    <p>Are you sure you would like to delete this post?</p>
+                    <p>
+                        <strong>Post Title:</strong> 
+                        {{post.title}}
+                    </p>
                 </div>
                 <div class="modal-footer">
                 

@@ -104,13 +104,12 @@ h1.home-main-title {
   max-width: 78.281px;
   align-self: center; }
 
-div.post-create-modal #button-city-dropdown {
-  border: 1px solid black;
-  margin-bottom: 10px; }
+div.delete-post-modal .modal-body {
+  padding: 1.2rem; }
 
-div.post-create-modal .post-content-textarea {
-  height: 30vh;
-  vertical-align: top; }
+div.delete-post-modal p {
+  color: black;
+  padding: 10px; }
 
 main.city-detail {
   display: grid;
@@ -148,7 +147,8 @@ div.post-create-modal .post-content-textarea {
 li.post-card {
   display: grid;
   grid-template-columns: 1fr 60px;
-  grid-template-areas: "header ellipsis" "content content"; }
+  grid-template-areas: "header ellipsis" "content content";
+  margin-bottom: 15px; }
   li.post-card div.post-header {
     grid-area: header;
     justify-self: start;

@@ -1,3 +1,13 @@
+div.delete-post-modal{
+    .modal-body{
+        padding: 1.2rem;
+    }
+    p {
+        color: black;
+        padding: 10px;
+    }
+}
+
 main.city-detail {
     display: grid;
     grid-template-columns: 150px 1fr;
@@ -47,6 +57,8 @@ li.post-card {
     grid-template-areas: 
         "header ellipsis"
         "content content";
+    margin-bottom: 15px;
+
     div.post-header {
         grid-area: header;
         justify-self: start;
