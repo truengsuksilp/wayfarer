@@ -5,12 +5,17 @@ from django.contrib.auth.models import User
 
 # model imports from django 
 from django.db.models import Model, CharField, ForeignKey, TextField, DateTimeField, SlugField
+
+#Pretty URL with reverse and slugify
+from django.urls import reverse
+from django.template.defaultfilters import slugify
+
 # Create your models here.
 class Profile (Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     join_date = DateTimeField(auto_now_add=True)
     name = CharField(max_length=100)
-    slug = SlugField(max_length=100, default='no_slugs')
+    slug = SlugField(max_length=100, default='no_slugs', unique=True)
     current_city = CharField(max_length=200)
     profile_picture = CharField(max_length=2000, default="https://media1.thehungryjpeg.com/thumbs2/ori_3686943_09tpyqe6r67ba765aheypmgvqo0vltfraf4ru77u_plane-icon.jpg")
 

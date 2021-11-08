@@ -39,7 +39,7 @@
                     <a href="{% url 'post_detail' post.pk %}" class="font-weight-bold">{{post.title}}</a>
                     <p> 
                         <strong>Published Date:</strong>
-                        {{ post.created_at.date }}
+                        {{ post.created_at.date | timesince:now }}
                         
                     </p>
                 </div>
