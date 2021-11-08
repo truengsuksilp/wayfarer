@@ -2,6 +2,7 @@
 {% load static %}
 {% load days_from %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,10 +87,10 @@
         </ul>
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item active">
-                <a class="nav-link auth-buttons" href="{% url 'signup'%}"> Signup</a>
+                <a class="nav-link auth-buttons" href="{% url 'signup'%}" data-toggle="modal" data-target="#signupModal"> Signup</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link auth-buttons" href="{% url 'login'%}" data-toggle="modal" data-target="#exampleModal"> Login </a>
+                <a class="nav-link auth-buttons" href="{% url 'login'%}" data-toggle="modal" data-target="#loginModal"> Login </a>
             </li>
         </ul>
     </div>
