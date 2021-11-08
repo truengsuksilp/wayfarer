@@ -13,8 +13,8 @@ Update Profile
 <div id="profile_page" class="container-fluid">
     <!-- user -->
     <div id="profile_box">
-        <img class="profile_pic" src="{{profile.profile_picture}}" alt="User Image">
-            <form method="post" action="{% url 'profile_update' profile.pk %}">
+        <img class="profile_pic user_img" src="{{profile.profile_picture}}" alt="User Image">
+            <form class="user_update" method="post" action="{% url 'profile_update' profile.pk %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Username</label>
@@ -24,7 +24,8 @@ Update Profile
                     <label for="exampleInputPassword1">Location</label>
                     <input type="text" name="current_city" class="form-control" placeholder="Input your current city">  
                 </div>
-                    <button type="submit" value"Submit" class="btn btn-outline-primary">Update</button>
+                
+                <button type="submit" value"Submit" class="btn btn-outline-primary update">Update</button>
             </form>
     </div>
     <!-- posts -->
@@ -34,7 +35,7 @@ Update Profile
             {{profile.name}}'s Posts: 
             {% for post in profile.posts.all %}
                 <div  class="col-12 posting">
-                 <img class="post_picture" src="{{profile.profile_picture}}" alt="User Image">
+                 <img class="post_picture user_img" src="{{profile.profile_picture}}" alt="User Image">
                 <b><a href="">{{post.title}}</a></b>
                 {{post.city}}
                 <span class="hide_when_small">{{post.created_at}}</span>
