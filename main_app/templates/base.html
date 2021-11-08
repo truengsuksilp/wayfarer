@@ -110,10 +110,12 @@
                         {% csrf_token %}
 
                         {{ form.as_p }}
-
-                        <input type="text" name="name" placeholder="Name">
-                        <input type="text" name="current_city" placeholder="City">
-                        <input type="text" name="profile_picture" placeholder="Image">
+                        <p><label for="name">Display Name</label>
+                        <input type="text" name="name" placeholder="Name"></p>
+                        <p><label for="current_city">Current City</label>
+                        <input type="text" name="current_city" placeholder="City"></p>
+                        <p><label for="profile_picture">Profile picture</label>
+                        <input type="text" name="profile_picture" value="https://media1.thehungryjpeg.com/thumbs2/ori_3686943_09tpyqe6r67ba765aheypmgvqo0vltfraf4ru77u_plane-icon.jpg" placeholder="Image"></p>
 
                         <input class="button" type="submit" value="Submit">
                     
