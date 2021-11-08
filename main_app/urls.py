@@ -14,6 +14,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('cities/<int:pk>/', CityDetail.as_view(), name="city_detail"),
     path('cities/<slug:slug>', CityDetail.as_view(), name="city_detail"),
-    path('posts/<int:city_pk>/create/', PostCreate.as_view(), name="post_create"),
+    path('posts/<int:pk>/create/', PostCreate.as_view(), name="post_create"),
     path('posts/<int:pk>/delete/', PostDelete.as_view(), name="post_delete") ,
 ]

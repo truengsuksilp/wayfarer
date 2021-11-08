@@ -76,13 +76,14 @@ class CityDetail(DetailView):
         context['now'] = datetime.now()
         return context
 
-class PostCreate(View):
+class PostCreate(CreateView):
     def post(self, request, pk):
-        Post.objects.create(
-            city = request.POST.get('post-city'),
-            title = request.POST.get('post-title'),
-            content = request.POST.get('post-content'),
-        )
+        title = request.POST.get("post-title")
+        content = request.POST.get("post-content")
+        city = City.objects.get(pk=pk)
+        profile = request.user.profile
+        Post.objects.create(title=title, content=content, city=city, profile=profile)
+        return redirect('city_detail', pk=pk)
 
 class PostDelete(DeleteView):
     model = Post
@@ -90,9 +91,3 @@ class PostDelete(DeleteView):
 
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.city.pk})
-
-class PostCreate(CreateView):
-    model = Post
-    fields = ['title', 'content']
-    template_name = "post_create.html"
-    success_url = "/"
