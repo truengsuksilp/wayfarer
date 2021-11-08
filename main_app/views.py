@@ -76,17 +76,24 @@ class CityDetail(DetailView):
         context['now'] = datetime.now()
         return context
 
-class PostCreate(View):
+class PostCreate(CreateView):
     def post(self, request, pk):
-        Post.objects.create(
-            city = request.POST.get('post-city'),
-            title = request.POST.get('post-title'),
-            content = request.POST.get('post-content'),
-        )
-
-class PostDelete(DeleteView):
+        title = request.POST.get("post-title")
+        content = request.POST.get("post-content")
+        city = City.objects.get(pk=pk)
+        profile = request.user.profile
+        Post.objects.create(title=title, content=content, city=city, profile=profile)
+        return redirect('city_detail', pk=pk)
+class PostDelete(View):
+    def post(self, request, pk):
+        Post.objects.filter(pk=pk).delete()
+        return redirect(request.META.get('HTTP_REFERER', '/'))
+class PostUpdate(UpdateView):
     model = Post
-    template_name = "post_delete_confirm.html"
+    fields = ['title', 'content']
+    template_name = "city_detail.html"
 
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.city.pk})
+
+

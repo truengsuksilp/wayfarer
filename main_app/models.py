@@ -24,7 +24,7 @@ class Profile (Model):
 
 class City (Model):
     name = CharField(max_length=250)
-    slug = SlugField(max_length=100, default='no_slugs')
+    slug = SlugField(max_length=100, default='no_slugs', unique=False)
     country = CharField(max_length=250)
     picture = CharField(max_length = 1000)
 
