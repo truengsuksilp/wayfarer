@@ -1,4 +1,4 @@
-user,join_date,name,current_city,profile_picture,user_id
-1,11/7/21 16:33,Octocat,San Francisco,https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png,1
-2,11/7/21 16:33,Meta,San Francisco,https://yt3.ggpht.com/AAnXC4o1n8BKDsO5l6Uc71rf7WOJjm2-aUHzkvyp9vGYB5F4UtXWTecVzvPOBCFK0bNYsZlD7Hk=s900-c-k-c0x00ffffff-no-rj,4
-3,11/7/21 16:33,GA,San Francisco,https://ga-core.s3.amazonaws.com/cms/files/files/000/000/886/original/ga-logo-gear.png,5
+user,join_date,name,slug,current_city,profile_picture,user_id
+1,11/7/21 16:33,Octocat,octa,San Francisco,https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png,1
+2,11/7/21 16:33,Meta,meta,San Francisco,https://yt3.ggpht.com/AAnXC4o1n8BKDsO5l6Uc71rf7WOJjm2-aUHzkvyp9vGYB5F4UtXWTecVzvPOBCFK0bNYsZlD7Hk=s900-c-k-c0x00ffffff-no-rj,4
+3,11/7/21 16:33,GA,ga,San Francisco,https://ga-core.s3.amazonaws.com/cms/files/files/000/000/886/original/ga-logo-gear.png,5
