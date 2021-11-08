@@ -1,7 +1,7 @@
 from django.urls import path, include
 from . import views
 
-from .views import Home, PostDetail, ProfileDetail, ProfileUpdate, CityDetail, PostDelete
+from .views import Home, PostDetail, ProfileDetail, ProfileUpdate, CityDetail, PostCreate, PostDelete
 
 
 urlpatterns = [
@@ -14,5 +14,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('cities/<int:pk>/', CityDetail.as_view(), name="city_detail"),
     path('cities/<slug:slug>', CityDetail.as_view(), name="city_detail"),
-    path('posts/<int:pk>/delete/', PostDelete.as_view(), name="post_delete") 
+    path('posts/<int:pk>/create/', PostCreate.as_view(), name="post_create"),
+    path('posts/<int:pk>/delete/', PostDelete.as_view(), name="post_delete") ,
 ]

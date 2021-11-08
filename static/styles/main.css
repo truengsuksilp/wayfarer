@@ -92,6 +92,14 @@ h1.home-main-title {
 .posting {
   min-height: 30vh; }
 
+div.post-create-modal #button-city-dropdown {
+  border: 1px solid black;
+  margin-bottom: 10px; }
+
+div.post-create-modal .post-content-textarea {
+  height: 30vh;
+  vertical-align: top; }
+
 main.city-detail {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -108,7 +116,14 @@ main.city-detail {
     border-radius: 1%;
     background-color: #1c4ea3; }
   main.city-detail h1 {
-    color: white; }
+    color: white;
+    margin-top: 15px; }
+  main.city-detail a.city-posts-create {
+    background-color: white;
+    padding: 15px 20px;
+    margin: 15px 15px 0px 0px;
+    border-radius: 50%;
+    text-align: center; }
 
 li.post-card {
   display: grid;

@@ -76,6 +76,14 @@ class CityDetail(DetailView):
         context['now'] = datetime.now()
         return context
 
+class PostCreate(View):
+    def post(self, request, pk):
+        Post.objects.create(
+            city = request.POST.get('post-city'),
+            title = request.POST.get('post-title'),
+            content = request.POST.get('post-content'),
+        )
+
 class PostDelete(DeleteView):
     model = Post
     template_name = "post_delete_confirm.html"
