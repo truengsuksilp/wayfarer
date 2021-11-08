@@ -84,8 +84,49 @@
         </ul>
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item active">
-                <a class="nav-link auth-buttons" href="{% url 'signup'%}"> Signup</a>
+                <a class="nav-link auth-buttons signup-modal" data-toggle="modal" data-target="#signup-modal" href=""> Signup </a>
             </li>
+
+
+<!-- sign up modal -->
+
+
+
+ <div class="modal signup-modal" tabindex="-1" role="dialog" id="signup-modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Signup</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="modal-body-override">
+
+                                <!-- Signup FORM -->
+                    <h1 class="title">Signup</h1>
+
+                    <form action="{% url 'signup' %}" method="POST">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <input type="text" name="name" placeholder="Name">
+                        <input type="text" name="current_city" placeholder="City">
+                        <input type="text" name="profile_picture" placeholder="Image">
+
+                        <input class="button" type="submit" value="Submit">
+                    
+                    </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
             <li class="nav-item active">
                 <a class="nav-link auth-buttons" href="{% url 'login'%}" data-toggle="modal" data-target="#exampleModal"> Login </a>
             </li>
