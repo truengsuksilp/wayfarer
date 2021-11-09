@@ -16,7 +16,7 @@
    
     <img class="user_img" src="{{ post.profile.profile_picture }}" alt="">
     <p>by {{ post.profile.name }}</p>
-    <p>{{ post.content }}</p>
+    <p>{{ post.content | safe }}</p>
 </div>
 
 <div id="comment_box">
