@@ -116,3 +116,16 @@ class CommentCreate(CreateView):
         post = Post.objects.get(pk=pk)
         Comment.objects.create(content=content, profile=profile, post=post)
         return redirect('city_detail', pk=4)
+
+class CommentDelete(View):
+    def post(self, request, pk, post_pk):
+        Comment.objects.filter(pk = pk).delete()
+        return redirect("post_detail", pk=post_pk)
+
+class CommentUpdate(UpdateView):
+    model = Comment
+    fields = ["content"]
+
+    def get_success_url(self):
+        return reverse("post_detail", kwargs={'pk':self.object.post.pk} )
+

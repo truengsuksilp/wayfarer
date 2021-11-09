@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.urls import path, include
 from . import views
 
-from .views import Home, PostDetail, ProfileDetail, ProfileUpdate, CityDetail, PostCreate, PostDelete, PostUpdate, About, CommentCreate
+from .views import Home, PostDetail, ProfileDetail, ProfileUpdate, CityDetail, PostCreate, PostDelete, PostUpdate, About, CommentCreate, CommentDelete, CommentUpdate
 
 
 urlpatterns = [
@@ -19,5 +19,7 @@ urlpatterns = [
     path('posts/<int:pk>/delete/', PostDelete.as_view(), name='post_delete'),
     path('posts/<int:pk>/update/', PostUpdate.as_view(), name= 'post_update'),
     path('about/', About.as_view(), name='about'),
-    path('posts/<int:pk>/comment/create/', CommentCreate.as_view(), name='comment_create')
+    path('posts/<int:pk>/comment/create/', CommentCreate.as_view(), name='comment_create'),
+    path('comment/<int:pk>/delete/<int:post_pk>/', CommentDelete.as_view(), name='comment_delete'),
+    path('comment/<int:pk>/update/', CommentUpdate.as_view(), name='comment_update')
 ]
