@@ -115,7 +115,7 @@ class CommentCreate(CreateView):
         profile = request.user.profile
         post = Post.objects.get(pk=pk)
         Comment.objects.create(content=content, profile=profile, post=post)
-        return redirect('city_detail', pk=4)
+        return redirect('post_detail', pk=pk)
 
 class CommentDelete(View):
     def post(self, request, pk, post_pk):
