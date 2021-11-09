@@ -24,9 +24,9 @@
         <div id="review_box">
         <h2>Comments:</h2>
             <div class="add_comment">
-                <button type="button" class="btn btn-outline-primary edit" data-toggle="modal" data-target="#comment-create"><i class="fas fa-plus">Add Comment</i></button>
+                <button type="button" class="btn btn-outline-success edit" data-toggle="modal" data-target="#comment-create"><i class="fas fa-plus">Add Comment</i></button>
             </div>
-            <!-- Modal for Create Comment -->
+<!-- Modal for Create Comment -->
                         <div class="modal comment-create" tabindex="-1" role="dialog" id="comment-create">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -52,21 +52,23 @@
                         </div>
 
         {% for comment in post.comments.all %}
-            <div id="comment" class="col-12 posting ">
+        <article class="col-12 posting comment">
+            <h3 class="comment-author"> User: {{comment.profile}} </h3> 
+          
             {% if comment.profile == user.profile %}
-               <div class="dropdown show">
+               <div  class="dropdown show">
                     <a class="btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-h"></i>
                     </a>
                     <div class="dropdown-menu" id="post-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" data-toggle="modal" data-target="#edit-comment-modal-{{comment.pk}}" >Edit Comment</a>
-                        <a class="dropdown-item" data-toggle="modal" data-target="#delete-comment-modal-{{comment.pk}}">Delete Post</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#edit-comment-modal-{{comment.pk}}" ><button class="btn btn-outline-primary">Edit Comment</button></a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#delete-comment-modal-{{comment.pk}}"><button class="btn btn-outline-danger">Delete Comment</button></a>
                     </div>
                 </div>
             {% endif %}
-            <h3>{{comment.profile}} </h3>
-            <p>{{comment.content}}</p>
-        </div>
+          <p class="comment-content">{{comment.content}}</p> 
+           
+        </article>
 
 <!-- Modal for Comment Delete -->
             <div class="modal fade delete-commenrt-modal" id="delete-comment-modal-{{comment.pk}}" tabindex="-1" role="dialog">

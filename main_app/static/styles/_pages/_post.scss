@@ -1,3 +1,5 @@
+
+
 .post_body {
     display: flex;
     flex-direction: column;
@@ -19,7 +21,24 @@
     align-items: center;
 }
 
-#comment{
-    min-width:60vw;
-    max-width:60vw;
+article.comment{
+    display: grid;
+    max-width: 60vw;
+    min-width: 60vw;
+    grid-template-columns: 17fr 1fr;
+    grid-template-rows: 9fr 9fr;
+    grid-template-areas: 
+        "commentauthor  dropdownMenuLink"
+        "commentcontent commentcontent";
+        
+    h3{
+        grid-area: commentauthor;
+    }
+    a{
+        grid-area: dropdownMenuLink;
+        justify-self: end;
+    }
+    p{
+        grid-area: commentcontent;
+    }
 }
