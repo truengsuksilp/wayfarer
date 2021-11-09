@@ -6,9 +6,128 @@
 
 <div class="post_body">
     <h1>{{ post.title }}</h1>
+
+    {% for comment in post.comments.all %}
+        {% if forloop.last %}
+            <h4> This post has {{ forloop.counter }} comments.</h4>
+        {% endif %} 
+    {%endfor%}
+
+   
     <img class="user_img" src="{{ post.profile.profile_picture }}" alt="">
     <p>by {{ post.profile.name }}</p>
     <p>{{ post.content }}</p>
 </div>
+
+<div id="comment_box">
+    <div>
+        <div id="review_box">
+        <h2>Comments:</h2>
+            <div class="add_comment">
+                <button type="button" class="btn btn-outline-primary edit" data-toggle="modal" data-target="#comment-create"><i class="fas fa-plus">Add Comment</i></button>
+            </div>
+            <!-- Modal for Create Comment -->
+                        <div class="modal comment-create" tabindex="-1" role="dialog" id="comment-create">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Leave a comment</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="modal-body-override">
+                                        <form action="{% url 'comment_create' post.pk%}" method="POST">
+                                            {% csrf_token %}
+                                            <p>
+                                                <input type="textarea" class="post-content-textarea" name="comment-content" placeholder = "Comment...">
+                                            </p>
+                                            <div class="7"> 
+                                                <button type="submit" class="btn btn-primary">Add Comment</button>  
+                                            </div>                  
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+        {% for comment in post.comments.all %}
+            <div id="comment" class="col-12 posting ">
+            {% if comment.profile == user.profile %}
+               <div class="dropdown show">
+                    <a class="btn btn-primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                    <div class="dropdown-menu" id="post-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" data-toggle="modal" data-target="#edit-comment-modal-{{comment.pk}}" >Edit Comment</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#delete-comment-modal-{{comment.pk}}">Delete Post</a>
+                    </div>
+                </div>
+            {% endif %}
+            <h3>{{comment.profile}} </h3>
+            <p>{{comment.content}}</p>
+        </div>
+
+<!-- Modal for Comment Delete -->
+            <div class="modal fade delete-commenrt-modal" id="delete-comment-modal-{{comment.pk}}" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete Comment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you would like to delete your comment?</p>   
+                            <p> {{comment.post.pk}} </p>                     
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{% url 'comment_delete' comment.pk comment.post.pk %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- Modal for Update Comment -->    
+            <div class="modal edit-comment-modal" tabindex="-1" role="dialog" id="edit-comment-modal-{{comment.pk}}">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit Comment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="modal-body-override">                     
+                            <form action="{% url 'comment_update' comment.pk%}" method="POST">
+                                {% csrf_token %}                                
+                                <p>
+                                    <input type="textarea" class="comment-content-textarea" name="content" placeholder = "{{comment.content}}" value="{{comment.content}}">
+                                    <p> {{comment.pk}} </p>
+                                </p>
+                                <div class="7"> 
+                                    <button type="submit" class="btn btn-primary">Update Comment</button>  
+                                </div>                  
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        {% endfor %}
+        </div>
+    </div>    
+</div>
+
+
+
+ 
 
 {% endblock %}
