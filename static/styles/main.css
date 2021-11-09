@@ -319,6 +319,10 @@ li.post-card {
   min-width: 60vw;
   max-width: 60vw; }
 
+.about-team img {
+  max-width: 200px;
+  border-radius: 50%; }
+
 h1 {
   color: #836faf; }
 
