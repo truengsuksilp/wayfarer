@@ -104,6 +104,9 @@ h1.home-main-title {
   max-width: 78.281px;
   align-self: center; }
 
+#post_box {
+  max-width: 75vw; }
+
 main.city-detail {
   display: grid;
   grid-template-columns: 150px 1fr;

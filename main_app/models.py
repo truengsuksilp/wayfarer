@@ -32,7 +32,7 @@ class City (Model):
         return self.name
 
 class Post (Model): 
-    title = CharField(max_length = 48)
+    title = CharField(max_length = 200)
     content = TextField(max_length=10000)
     profile = ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
     city = ForeignKey(City, on_delete=models.CASCADE, related_name="posts")
