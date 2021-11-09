@@ -1,4 +1,6 @@
-
+*{
+    font: r
+}
 .posting{
     min-height: 30vh;
 }
@@ -46,11 +48,28 @@
     border-radius: 5px;
 }
 
+#profile_box:hover{
+    transition: box-shadow, transform .5s ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 10px 10px 7px 2px $light-gray;
+    -webkit-box-shadow: 10px 10px 7px 2px $light-gray;
+    -moz-box-shadow: 10px 10px 7px 2px $light-gray;
+}
+
+.posting:hover{
+    z-index: 10;
+    transition: box-shadow .5s ease-in-out;
+    box-shadow: 10px 10px 7px 2px $light-gray;
+    -webkit-box-shadow: 10px 10px 7px 2px $light-gray;
+    -moz-box-shadow: 10px 10px 7px 2px $light-gray;
+}
+
 #post_box {
     margin-top: 10vh;
     max-width: 75vw;
     display: flex;
     justify-content: flex-end;
+    
     
 }
 
