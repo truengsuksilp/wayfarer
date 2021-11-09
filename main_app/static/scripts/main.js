@@ -11,3 +11,4 @@ tinymce.init({
   menubar: false,
   
 });
+
