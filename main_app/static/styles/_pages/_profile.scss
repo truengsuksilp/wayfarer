@@ -18,6 +18,14 @@
     align-self: center;
 }
 
+#comment-box{
+    max-width: 75vw;
+    min-width: 75vw;
+}
+
+#post_box{
+    max-width: 75vw;
+}
 #profile_page{
     background-color: #050719 !important;
     display: flex;
@@ -110,5 +118,9 @@
         max-width: 90vw;
         display: flex;
         margin: 5%;
+    }
+    .edit{
+        margin: 5vh 0;
+
     }
 }

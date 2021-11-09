@@ -104,6 +104,13 @@ h1.home-main-title {
   max-width: 78.281px;
   align-self: center; }
 
+#comment-box {
+  max-width: 75vw;
+  min-width: 75vw; }
+
+#post_box {
+  max-width: 75vw; }
+
 #profile_page {
   background-color: #050719 !important;
   display: flex;
@@ -176,7 +183,9 @@ h1.home-main-title {
   #profile_box {
     max-width: 90vw;
     display: flex;
-    margin: 5%; } }
+    margin: 5%; }
+  .edit {
+    margin: 5vh 0; } }
 
 main.city-detail {
   display: grid;
@@ -302,6 +311,26 @@ li.post-card {
   border-radius: 5px; }
   .post_body img {
     max-width: 100px; }
+
+#comment_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+article.comment {
+  display: grid;
+  max-width: 60vw;
+  min-width: 60vw;
+  grid-template-columns: 17fr 1fr;
+  grid-template-rows: 9fr 9fr;
+  grid-template-areas: "commentauthor  dropdownMenuLink" "commentcontent commentcontent"; }
+  article.comment h3 {
+    grid-area: commentauthor; }
+  article.comment a {
+    grid-area: dropdownMenuLink;
+    justify-self: end; }
+  article.comment p {
+    grid-area: commentcontent; }
 
 h1 {
   color: #836faf; }
