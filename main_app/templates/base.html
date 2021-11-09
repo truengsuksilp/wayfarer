@@ -93,18 +93,22 @@
         </ul>
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item active">
-                <a class="nav-link auth-buttons signup-modal" data-toggle="modal" data-target="#signup-modal-clean" href=""> Signup New! </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link auth-buttons signup-modal" data-toggle="modal" data-target="#signup-modal" href=""> Signup </a>
+                <a class="nav-link auth-buttons signup-modal" data-toggle="modal" data-target="#signup-modal-clean" href=""> Signup </a>
             </li>
 
             {% include 'nav_modals/signup_clean.html' %}
-            {% include 'nav_modals/signup_modal.html' %}
+
+            {% comment %} <li class="nav-item active">
+                <a class="nav-link auth-buttons signup-modal" data-toggle="modal" data-target="#signup-modal" href=""> Signupn Old </a>
+            </li> {% endcomment %}
+
+            {% comment %} {% include 'nav_modals/signup_modal.html' %} {% endcomment %}
 
             <li class="nav-item active">
                 <a class="nav-link auth-buttons" href="{% url 'login'%}" data-toggle="modal" data-target="#login-modal"> Login </a>
             </li>
+
+            {% include "nav_modals/login_modal.html" %}
         </ul>
     </div>
 

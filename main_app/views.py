@@ -26,6 +26,10 @@ from .forms import SignUpForm
 
 class Home(TemplateView):
     template_name = 'home.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"]=SignUpForm()
+        return context
     
 class ProfileDetail(DetailView):
     model = Profile
@@ -131,3 +135,7 @@ class PostUpdate(UpdateView):
 
 class About(TemplateView):
     template_name = 'about.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"]=SignUpForm()
+        return context
