@@ -7,15 +7,20 @@ main.city-detail {
 
     aside {
         grid-area: aside;
-        background-color: $light-blue;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, $light-purple 100%);
+        // border: 2px solid rgb(215, 215, 0);
+        // box-shadow: 4px 4px 4px 4px rgba(215, 215, 0, 0.7);
         padding: 20px;
-        border-radius: 1%;   
+        border-radius: 1%;
     }
     article {
         grid-area: article;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, $light-blue 100%);
+        // box-shadow: 4px 4px 4px 4px rgba(215, 215, 0, 0.7);
         padding: 20px;
         border-radius: 1%;
-        background-color: $light-blue;
     }
     h1 {
         color: white;
@@ -37,7 +42,17 @@ div.post-create-modal{
     }
     .post-content-textarea {
         height: 30vh;
-        vertical-align: top;
+        // vertical-align: top;
+    }
+}
+
+div.delete-post-modal{
+    .modal-body{
+        padding: 1.2rem;
+    }
+    p {
+        color: black;
+        padding: 10px;
     }
 }
 
@@ -47,6 +62,8 @@ li.post-card {
     grid-template-areas: 
         "header ellipsis"
         "content content";
+    margin-bottom: 15px;
+
     div.post-header {
         grid-area: header;
         justify-self: start;
@@ -68,8 +85,12 @@ li.post-card {
 
 // Small screen: No Grid on article
 @media only screen and (min-width: 320px) {
-    article {
-        margin: 0px 40px 0px 20px;    
+    article.city-detail {
+        margin: 0px 40px 0px 20px; 
+        img {
+            border-radius: 5%;
+            width: 90%;
+        }   
     }
     aside.city-detail {
         li {
@@ -83,12 +104,6 @@ li.post-card {
             width: 45px;
             overflow: hidden;
             border-radius: 5%;
-        }
-    }
-    article.city-detail {
-        img {
-            border-radius: 5%;
-            width: 90%;
         }
     }
 }

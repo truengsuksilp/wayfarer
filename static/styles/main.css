@@ -58,7 +58,7 @@ nav {
 article.carousel {
   display: flex;
   justify-content: center;
-  max-height: 50vh;
+  height: 50vh;
   overflow: hidden; }
   article.carousel img {
     width: 100vw; }
@@ -103,131 +103,6 @@ h1.home-main-title {
   padding: 6px 12px 6px 12px;
   max-width: 78.281px;
   align-self: center; }
-
-main.city-detail {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  grid-template-areas: "aside article";
-  margin: 20px 20px; }
-  main.city-detail aside {
-    grid-area: aside;
-    background-color: #1c4ea3;
-    padding: 20px;
-    border-radius: 1%; }
-  main.city-detail article {
-    grid-area: article;
-    padding: 20px;
-    border-radius: 1%;
-    background-color: #1c4ea3; }
-  main.city-detail h1 {
-    color: white;
-    margin-top: 15px; }
-  main.city-detail a.city-posts-create {
-    background-color: white;
-    padding: 15px 20px;
-    margin: 15px 15px 0px 0px;
-    border-radius: 50%;
-    text-align: center; }
-
-div.post-create-modal #button-city-dropdown {
-  border: 1px solid black;
-  margin-bottom: 10px; }
-
-div.post-create-modal .post-content-textarea {
-  height: 30vh;
-  vertical-align: top; }
-
-li.post-card {
-  display: grid;
-  grid-template-columns: 1fr 60px;
-  grid-template-areas: "header ellipsis" "content content"; }
-  li.post-card div.post-header {
-    grid-area: header;
-    justify-self: start;
-    font-size: 1.5rem; }
-    li.post-card div.post-header img {
-      width: 3rem;
-      border-radius: 10%; }
-  li.post-card div.dropdown {
-    grid-area: ellipsis;
-    justify-self: end; }
-  li.post-card p {
-    grid-area: content;
-    color: #050719; }
-
-@media only screen and (min-width: 320px) {
-  article {
-    margin: 0px 40px 0px 20px; }
-  aside.city-detail li {
-    margin: 3px 0px;
-    font-weight: 800;
-    font-size: 2 rem;
-    margin: 20px 0px;
-    padding: 5px; }
-  aside.city-detail img {
-    width: 45px;
-    overflow: hidden;
-    border-radius: 5%; }
-  article.city-detail img {
-    border-radius: 5%;
-    width: 90%; } }
-
-@media only screen and (min-width: 720px) {
-  aside.city-detail li {
-    padding: 10px; }
-  aside.city-detail img, aside.city-detail h5 {
-    display: inline; }
-  aside.city-detail img {
-    width: 60px;
-    margin-right: 10px; }
-  main.city-detail {
-    grid-template-columns: 30vw 70vw; }
-  article.city-detail {
-    display: grid;
-    grid-template-rows: 150px 100px 1fr;
-    grid-template-columns: 2fr 3fr;
-    grid-template-areas: "city-profile city-img" "city-posts-header city-posts-create"  "posts posts"; }
-    article.city-detail div {
-      grid-area: city-profile; }
-    article.city-detail img {
-      grid-area: city-img;
-      justify-self: end;
-      width: 320px;
-      height: calc(320*9/16px); }
-    article.city-detail h1 {
-      grid-area: city-posts-header;
-      align-self: center; }
-    article.city-detail a {
-      grid-area: city-posts-create;
-      justify-self: end;
-      align-self: center; }
-    article.city-detail ul {
-      grid-area: posts; } }
-
-#post-menu {
-  margin-right: 7vw; }
-
-.post_body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 60vw;
-  min-height: 60vh;
-  padding: 15px;
-  margin: 50px auto;
-  border: 5px solid #836faf;
-  border-radius: 5px; }
-  .post_body img {
-    max-width: 100px; }
-
-h1 {
-  color: #836faf; }
-
-p {
-  color: #c7cadc; }
-
-div {
-  color: #c7cadc; }
 
 #profile_page {
   background-color: #050719 !important;
@@ -303,6 +178,140 @@ div {
     display: flex;
     margin: 5%; } }
 
+main.city-detail {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-areas: "aside article";
+  margin: 20px 20px; }
+  main.city-detail aside {
+    grid-area: aside;
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #836faf 100%);
+    padding: 20px;
+    border-radius: 1%; }
+  main.city-detail article {
+    grid-area: article;
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #1c4ea3 100%);
+    padding: 20px;
+    border-radius: 1%; }
+  main.city-detail h1 {
+    color: white;
+    margin-top: 15px; }
+  main.city-detail a.city-posts-create {
+    background-color: white;
+    padding: 15px 20px;
+    margin: 15px 15px 0px 0px;
+    border-radius: 50%;
+    text-align: center; }
+
+div.post-create-modal #button-city-dropdown {
+  border: 1px solid black;
+  margin-bottom: 10px; }
+
+div.post-create-modal .post-content-textarea {
+  height: 30vh; }
+
+div.delete-post-modal .modal-body {
+  padding: 1.2rem; }
+
+div.delete-post-modal p {
+  color: black;
+  padding: 10px; }
+
+li.post-card {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  grid-template-areas: "header ellipsis" "content content";
+  margin-bottom: 15px; }
+  li.post-card div.post-header {
+    grid-area: header;
+    justify-self: start;
+    font-size: 1.5rem; }
+    li.post-card div.post-header img {
+      width: 3rem;
+      border-radius: 10%; }
+  li.post-card div.dropdown {
+    grid-area: ellipsis;
+    justify-self: end; }
+  li.post-card p {
+    grid-area: content;
+    color: #050719; }
+
+@media only screen and (min-width: 320px) {
+  article.city-detail {
+    margin: 0px 40px 0px 20px; }
+    article.city-detail img {
+      border-radius: 5%;
+      width: 90%; }
+  aside.city-detail li {
+    margin: 3px 0px;
+    font-weight: 800;
+    font-size: 2 rem;
+    margin: 20px 0px;
+    padding: 5px; }
+  aside.city-detail img {
+    width: 45px;
+    overflow: hidden;
+    border-radius: 5%; } }
+
+@media only screen and (min-width: 720px) {
+  aside.city-detail li {
+    padding: 10px; }
+  aside.city-detail img, aside.city-detail h5 {
+    display: inline; }
+  aside.city-detail img {
+    width: 60px;
+    margin-right: 10px; }
+  main.city-detail {
+    grid-template-columns: 30vw 70vw; }
+  article.city-detail {
+    display: grid;
+    grid-template-rows: 150px 100px 1fr;
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: "city-profile city-img" "city-posts-header city-posts-create"  "posts posts"; }
+    article.city-detail div {
+      grid-area: city-profile; }
+    article.city-detail img {
+      grid-area: city-img;
+      justify-self: end;
+      width: 320px;
+      height: calc(320*9/16px); }
+    article.city-detail h1 {
+      grid-area: city-posts-header;
+      align-self: center; }
+    article.city-detail a {
+      grid-area: city-posts-create;
+      justify-self: end;
+      align-self: center; }
+    article.city-detail ul {
+      grid-area: posts; } }
+
+#post-menu {
+  margin-right: 7vw; }
+
+.post_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 60vw;
+  min-height: 60vh;
+  padding: 15px;
+  margin: 50px auto;
+  border: 5px solid #836faf;
+  border-radius: 5px; }
+  .post_body img {
+    max-width: 100px; }
+
+h1 {
+  color: #836faf; }
+
+p {
+  color: #c7cadc; }
+
+div {
+  color: #c7cadc; }
+
 @media only screen and (min-width: 320px) {
   h1 {
     font-size: 2rem; }
@@ -311,7 +320,7 @@ div {
   p {
     font-size: 0.8rem; } }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 420px) {
   h1 {
     font-size: 2.5rem; }
   h3 {

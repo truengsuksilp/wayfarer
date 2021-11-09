@@ -46,7 +46,7 @@
                     </p>
                 </div>
                 
-                <p maxlength='5' >{{post.content}}</p>
+                <p maxlength='5' >{{post.content | slice:":1000"}}</p>
                 
                 <!-- if logic that outputs the delete and edit controls for only the posts associated with the logged in user-->
                 {% if post.profile == user.profile  %}
@@ -64,40 +64,6 @@
                         </div>
                     </div>
 
-
- <!-- post update modal -->
-    
-                <div class="modal post-edit-modal" tabindex="-1" role="dialog" id="post-edit-modal">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Edit Post</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body" id="modal-body-override">
-
-                                <!-- POST FORM -->
-
-                                <form action="{% url 'post_update' post.pk %}" method="POST">
-                                    {% csrf_token %}
-                                    <p>
-                                        <input type="text" name="title" placeholder="{{ post.title }}" value="{{ post.title }}">
-                                    </p>
-                                    <p>
-                                        <input type="textarea" class="post-content-textarea" name="content" placeholder = "{{post.content}}" value="{{post.content}}">
-                                    </p>
-                                    <div class="7"> 
-                                        <button type="submit" class="btn btn-primary">Update Post</button>  
-                                    </div>                  
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 {% else %}
                     <!-- if the post was created by another user you get a dummy list that simple says cannot edit-->
                     <div class="dropdown show">
@@ -109,33 +75,61 @@
             </li> 
 
             <!-- Modal for Delete Post -->
-            <div class="modal fade" id="delete-post-modal-{{post.pk}}" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you would like to delete your post? 
-                </div>
-                <div class="modal-footer">
-                
-                    <!-- Delete Post -->
-                    <form action="{% url 'post_delete' post.pk %}" method="post">
-                    {% csrf_token %}
-                        <button 
-                            type="submit" 
-                            class="btn btn-danger" 
-                        >Delete
-                        </button>
-                    </form>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
-                </div>
+            <div class="modal fade delete-post-modal" id="delete-post-modal-{{post.pk}}" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete Post</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you would like to delete this post?</p>
+                            <p>
+                                <strong>Post Title:</strong> 
+                                {{post.title}}
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <!-- Delete Post -->
+                            <form action="{% url 'post_delete' post.pk %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Modal: Update -->    
+            <div class="modal post-edit-modal" tabindex="-1" role="dialog" id="post-edit-modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit Post</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="modal-body-override">
+                            <!-- POST FORM -->
+                            <form action="{% url 'post_update' post.pk %}" method="POST">
+                                {% csrf_token %}
+                                <p>
+                                    <input type="text" name="title" placeholder="{{ post.title }}" value="{{ post.title }}">
+                                </p>
+                                <p>
+                                    <input type="textarea" class="post-content-textarea" name="content" placeholder = "{{post.content}}" value="{{post.content}}">
+                                </p>
+                                <div class="7"> 
+                                    <button type="submit" class="btn btn-primary">Update Post</button>  
+                                </div>                  
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {% endfor %}
@@ -159,19 +153,15 @@
             <div class="modal-body" id="modal-body-override">
 
                 <!-- POST FORM -->
+                <!-- TODO Add default for user  -->
 
                 <form action="{% url 'post_create' user.profile.pk %}" method="POST">
                     {% csrf_token %}
-
-                    <!-- DROPDOWN: List of cities -->
-                        <!-- TODO: Add Post request to buttons-->
-                        <!-- TODO: Post name: "post-city" -->
-                        <!-- TODO: Post field: send city.pk instead of name -->
                     <p>
                         <input type="text" name="post-title" placeholder="Enter Post Title">
                     </p>
                     <p>
-                        <input type="textarea" class="post-content-textarea" name="post-content" placeholder = "Enter Post Content">
+                        <textarea cols="40" rows="8" type="textarea" class="post-content-textarea" name="post-content" placeholder = "Enter Post Content"></textarea>
                     </p>
                     <div class="7"> 
                         <button type="submit" class="btn btn-primary">Post</button>  
