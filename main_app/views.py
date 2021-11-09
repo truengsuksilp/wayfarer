@@ -8,16 +8,18 @@ from django.urls import reverse
 from main_app.models import Profile, Post, City
 
 from datetime import datetime
-# TODO Add Auth 
 
 # import the class that will handle basic views
 from django.views import View
 
 # auth imports
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+
+# Forms
+from .forms import SignUpForm
 
 # Create your views here.
 
@@ -47,6 +49,27 @@ class PostDetail(DetailView):
         return context
 
 # Signup view
+class SignupClean(View):
+    def get(self, request):
+        form = SignUpForm()
+        context = {'form': form}
+        return render(request, 'home.html', context)
+    
+    def post(self, request):
+        form = SignUpForm(request.POST)
+        name = request.POST.get('username')
+        slug = request.POST.get('username')
+        
+        if form.is_valid():
+            user = form.save()
+            profile = Profile.objects.create(user=user, name=name, slug=slug)
+
+            login(request, user)
+            return redirect("profile_detail", pk=profile.pk)
+        else:
+            context = {"form": form}
+            return render(request, "404.html", context)
+
 class Signup(View):
     def get(self, request, **kwargs):
         form = UserCreationForm()
@@ -105,3 +128,6 @@ class PostUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.city.pk})
+
+class About(TemplateView):
+    template_name = 'about.html'

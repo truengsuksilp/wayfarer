@@ -2,11 +2,12 @@ from django.shortcuts import redirect
 from django.urls import path, include
 from . import views
 
-from .views import Home, PostDetail, ProfileDetail, ProfileUpdate, CityDetail, PostCreate, PostDelete, PostUpdate
+from .views import Home, PostDetail, ProfileDetail, ProfileUpdate, CityDetail, PostCreate, PostDelete, PostUpdate, About, SignupClean
 
 
 urlpatterns = [
     path('', lambda req: redirect('accounts/signup/'), name='home'),
+    path('accounts/signup/', SignupClean.as_view(), name='signup_clean'),
     path('accounts/signup/', views.Signup.as_view(), name='signup'),
     path('profile/<int:pk>/', ProfileDetail.as_view(), name='profile_detail'),
     path('profile/<slug:slug>/', ProfileDetail.as_view(), name='profile_detail'),
@@ -17,6 +18,6 @@ urlpatterns = [
     path('cities/<slug:slug>/', CityDetail.as_view(), name='city_detail'),
     path('posts/<int:pk>/create/', PostCreate.as_view(), name='post_create'),
     path('posts/<int:pk>/delete/', PostDelete.as_view(), name='post_delete'),
-    path('posts/<int:pk>/update/', PostUpdate.as_view(), name= 'post_update')
-
+    path('posts/<int:pk>/update/', PostUpdate.as_view(), name= 'post_update'),
+    path('about/', About.as_view(), name='about')
 ]
