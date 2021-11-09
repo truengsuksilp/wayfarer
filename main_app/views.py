@@ -128,3 +128,6 @@ class PostUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.city.pk})
+
+class About(TemplateView):
+    template_name = 'about.html'
