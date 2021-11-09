@@ -39,7 +39,7 @@ class City (Model):
 
 class Post (Model): 
     title = CharField(max_length = 200)
-    content = TextField(max_length=10000)
+    content = TextField(max_length=10000, blank=False)
     profile = ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
     city = ForeignKey(City, on_delete=models.CASCADE, related_name="posts")
     created_at = DateTimeField(auto_now_add=True)
