@@ -1,7 +1,7 @@
 from django.contrib import admin
 # TODO from .models import {Model}
 
-from .models import Profile, Post, City
+from .models import Profile, Post, City, Comment
 
 # Prepopulate slug fields when name
 # Reference: https://learndjango.com/tutorials/django-slug-tutorial
@@ -12,7 +12,7 @@ class ProfileAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Profile, ProfileAdmin)
 # admin.site.register(Profile)
-admin.site.register([Post, City])
+admin.site.register([Post, City, Comment])
 
 
 
