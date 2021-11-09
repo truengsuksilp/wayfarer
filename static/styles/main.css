@@ -183,7 +183,9 @@ h1.home-main-title {
   #profile_box {
     max-width: 90vw;
     display: flex;
-    margin: 5%; } }
+    margin: 5%; }
+  .edit {
+    margin: 5vh 0; } }
 
 main.city-detail {
   display: grid;
@@ -315,9 +317,20 @@ li.post-card {
   flex-direction: column;
   align-items: center; }
 
-#comment {
+article.comment {
+  display: grid;
+  max-width: 60vw;
   min-width: 60vw;
-  max-width: 60vw; }
+  grid-template-columns: 17fr 1fr;
+  grid-template-rows: 9fr 9fr;
+  grid-template-areas: "commentauthor  dropdownMenuLink" "commentcontent commentcontent"; }
+  article.comment h3 {
+    grid-area: commentauthor; }
+  article.comment a {
+    grid-area: dropdownMenuLink;
+    justify-self: end; }
+  article.comment p {
+    grid-area: commentcontent; }
 
 .about-team img {
   max-width: 200px;
