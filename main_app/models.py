@@ -10,9 +10,15 @@ from django.db.models import Model, CharField, ForeignKey, TextField, DateTimeFi
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 
+# User email must be unique
+    # Use sub-class meta: Check email in user and make sure it's unique
+    # Reference: https://stackoverflow.com/questions/1160030/how-to-make-email-field-unique-in-model-user-from-contrib-auth-in-django
+
+User._meta.get_field('email')._unique = True
+
 # Create your models here.
 class Profile (Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     join_date = DateTimeField(auto_now_add=True)
     name = CharField(max_length=100)
     slug = SlugField(max_length=100, default='no_slugs', unique=False)
@@ -39,11 +45,7 @@ class Post (Model):
     created_at = DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.title)    
+        return str(self.title) 
+
     class Meta:
         ordering = ['created_at']
-
-
-  
-
-

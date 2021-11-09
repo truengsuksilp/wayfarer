@@ -16,6 +16,9 @@ from django.views import View
 # auth imports
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 # Create your views here.
 
 
@@ -26,6 +29,7 @@ class ProfileDetail(DetailView):
     model = Profile
     template_name = "profile_detail.html"
 
+@method_decorator(login_required, name='dispatch')
 class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['name', 'current_city']
@@ -76,7 +80,9 @@ class CityDetail(DetailView):
         context['now'] = datetime.now()
         return context
 
+@method_decorator(login_required, name='dispatch')
 class PostCreate(CreateView):
+    # TODO : Update to accept pk is blank
     def post(self, request, pk):
         title = request.POST.get("post-title")
         content = request.POST.get("post-content")
@@ -84,10 +90,14 @@ class PostCreate(CreateView):
         profile = request.user.profile
         Post.objects.create(title=title, content=content, city=city, profile=profile)
         return redirect('city_detail', pk=pk)
+
+@method_decorator(login_required, name='dispatch')
 class PostDelete(View):
     def post(self, request, pk):
         Post.objects.filter(pk=pk).delete()
         return redirect(request.META.get('HTTP_REFERER', '/'))
+
+@method_decorator(login_required, name='dispatch')
 class PostUpdate(UpdateView):
     model = Post
     fields = ['title', 'content']
@@ -95,5 +105,3 @@ class PostUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.city.pk})
-
-

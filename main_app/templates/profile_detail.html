@@ -25,9 +25,11 @@ Profile
             <div id="review_box ">
             {{profile.name}}'s Posts: 
             {% for post in profile.posts.all %}
-                <div id="post_box" class="col-12 posting">
-                 <img class="post_picture user_img" src="{{profile.profile_picture}}" alt="User Image">
-                <b ><a class="post_title" href="{% url 'post_detail' post.pk %}" >{{post.title|slice:":48"}}</a></b>
+                <div  class="col-12 posting">
+                    <img class="post_picture user_img" src="{{profile.profile_picture}}" alt="User Image">
+                <b>
+                    <a href="{% url 'post_detail' post.pk %}">{{post.title | slice:":48"}}</a>
+                </b>
                 {{post.city}}
                 <span class="hide_when_small">{{post.created_at}}</span>
                 </div>
