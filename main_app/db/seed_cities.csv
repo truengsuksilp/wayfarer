@@ -1,6 +1,6 @@
 id, name,country,picture,slug
-1, San Francisco,United States,https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png,sf
-2, New York,United States,https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png,ny
+1, San Francisco,United States,https://cdn.britannica.com/68/170868-050-8DDE8263/Golden-Gate-Bridge-San-Francisco.jpg,sf
+2, New York,United States,https://media.istockphoto.com/photos/skyline-of-downtown-new-york-brooklin-bridge-and-manhattan-at-the-picture-id1225580270?b=1&k=20&m=1225580270&s=170667a&w=0&h=rgG_3icBA-kM24hDMFKyHoMr0c8u2alqqVj3pv6q684=,ny
 3, Chicago,United States,https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png,chicago
 4, Boston,United States,https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png,boston
 5, Houston,United States,https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png,houston
