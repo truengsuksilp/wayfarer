@@ -106,81 +106,68 @@ h1.home-main-title {
 
 #post_box {
   max-width: 75vw; }
-  
-#profile_page {
-  background-color: #050719 !important;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; }
-
-#profile_box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 25vw;
-  min-height: 60vh;
-  padding: 15px;
-  margin: 10px;
-  margin-right: 7vw;
-  border: 5px solid #836faf;
-  border-radius: 5px; }
-
-#post_box {
-  margin-top: 10vh;
-  max-width: 75vw;
-  display: flex;
-  justify-content: flex-end; }
-
-#user_img {
-  border-radius: 5px; }
-
-.profile_header {
-  margin-left: 25px; }
-
-.post_picture {
-  max-height: 5vh;
-  max-width: 5vh;
-  border-radius: 5px; }
-
-.posting {
-  padding: 6px;
-  margin: 5px 0;
-  border: 2px solid #836faf;
-  border-radius: 5px;
-  min-height: 7vh; }
-
-.profile_pic {
-  max-width: 60%;
-  max-height: 60%;
-  border-radius: 50%;
-  justify-content: center; }
-
-.user_img {
-  border-radius: 5px; }
-
-.member {
-  font-size: small; }
-
-@media only screen and (max-width: 420px) {
-  #profile_box {
-    max-width: 90vw;
+  #post_box #profile_page {
+    background-color: #050719 !important;
     display: flex;
-    margin: 5%; }
-  .profile_pic {
-    min-width: 60%;
+    flex-direction: row;
+    flex-wrap: wrap; }
+  #post_box #profile_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 25vw;
+    min-height: 60vh;
+    padding: 15px;
+    margin: 10px;
+    margin-right: 7vw;
+    border: 5px solid #836faf;
+    border-radius: 5px; }
+  #post_box #post_box {
+    margin-top: 10vh;
+    max-width: 75vw;
+    display: flex;
+    justify-content: flex-end; }
+  #post_box #user_img {
+    border-radius: 5px; }
+  #post_box .profile_header {
+    margin-left: 25px; }
+  #post_box .post_picture {
+    max-height: 5vh;
+    max-width: 5vh;
+    border-radius: 5px; }
+  #post_box .posting {
+    padding: 6px;
+    margin: 5px 0;
+    border: 2px solid #836faf;
+    border-radius: 5px;
+    min-height: 7vh; }
+  #post_box .profile_pic {
+    max-width: 60%;
+    max-height: 60%;
+    border-radius: 50%;
     justify-content: center; }
-  #post_box {
-    max-width: 95vw;
-    display: flex; }
-  .hide_when_small {
-    display: none; } }
-
-@media only screen and (max-width: 720px) {
-  #profile_box {
-    max-width: 90vw;
-    display: flex;
-    margin: 5%; } }
-
+  #post_box .user_img {
+    border-radius: 5px; }
+  #post_box .member {
+    font-size: small; }
+  @media only screen and (max-width: 420px) {
+    #post_box #profile_box {
+      max-width: 90vw;
+      display: flex;
+      margin: 5%; }
+    #post_box .profile_pic {
+      min-width: 60%;
+      justify-content: center; }
+    #post_box #post_box {
+      max-width: 95vw;
+      display: flex; }
+    #post_box .hide_when_small {
+      display: none; } }
+  @media only screen and (max-width: 720px) {
+    #post_box #profile_box {
+      max-width: 90vw;
+      display: flex;
+      margin: 5%; } }
 main.city-detail {
   display: grid;
   grid-template-columns: 150px 1fr;
