@@ -186,7 +186,7 @@ main.city-detail {
   main.city-detail aside {
     grid-area: aside;
     background: #020024;
-    background: linear-gradient(90deg, #020024 0%, #090979 35%, #836faf 100%);
+    background: linear-gradient(90deg, #836faf 0%, #090979 35%, #020024 100%);
     padding: 20px;
     border-radius: 1%; }
   main.city-detail article {

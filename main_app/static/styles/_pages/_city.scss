@@ -8,7 +8,7 @@ main.city-detail {
     aside {
         grid-area: aside;
         background: rgb(2,0,36);
-        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, $light-purple 100%);
+        background: linear-gradient(90deg, $light-purple 0%, rgba(9,9,121,1) 35%, rgba(2,0,36,1) 100%);
         // border: 2px solid rgb(215, 215, 0);
         // box-shadow: 4px 4px 4px 4px rgba(215, 215, 0, 0.7);
         padding: 20px;
