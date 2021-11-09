@@ -104,6 +104,10 @@ h1.home-main-title {
   max-width: 78.281px;
   align-self: center; }
 
+#comment-box {
+  max-width: 75vw;
+  min-width: 75vw; }
+
 #post_box {
   max-width: 75vw; }
 
@@ -305,6 +309,15 @@ li.post-card {
   border-radius: 5px; }
   .post_body img {
     max-width: 100px; }
+
+#comment_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+#comment {
+  min-width: 60vw;
+  max-width: 60vw; }
 
 h1 {
   color: #836faf; }

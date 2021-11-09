@@ -5,7 +5,7 @@ from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse  
-from main_app.models import Profile, Post, City
+from main_app.models import Comment, Profile, Post, City
 
 from datetime import datetime
 # TODO Add Auth 
@@ -101,10 +101,18 @@ class PostDelete(View):
 class PostUpdate(UpdateView):
     model = Post
     fields = ['title', 'content']
-    template_name = "city_detail.html"
+    template_name = 'city_detail.html'
 
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.city.pk})
 
 class About(TemplateView):
     template_name = 'about.html'
+
+class CommentCreate(CreateView):
+    def post(self, request, pk):
+        content = request.POST.get("comment-content")
+        profile = request.user.profile
+        post = Post.objects.get(pk=pk)
+        Comment.objects.create(content=content, profile=profile, post=post)
+        return redirect('city_detail', pk=4)

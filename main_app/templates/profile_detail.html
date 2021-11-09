@@ -19,7 +19,7 @@ Profile
         <span>Currently in: {{profile.current_city}}</span>
         <a href="{% url 'profile_update' profile.pk %} " ><button type="button" class="btn btn-outline-primary edit">Edit Profile</button></a>
     </div>
-    <!-- posts -->
+<!-- comments -->
     <div>
         <div>
             <div id="review_box ">
@@ -32,7 +32,7 @@ Profile
                 </b>
                 {{post.city}}
                 <span class="hide_when_small">{{post.created_at}}</span>
-                </div>
+            </div>
             {% endfor %}
             </div>
         </div>    
