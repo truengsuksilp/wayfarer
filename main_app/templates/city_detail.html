@@ -151,23 +151,26 @@
                 </button>
             </div>
             <div class="modal-body" id="modal-body-override">
-
                 <!-- POST FORM -->
-                <!-- TODO Add default for user  -->
-
                 <form action="{% url 'post_create' user.profile.pk %}" method="POST">
                     {% csrf_token %}
                     <p>
                         <input type="text" name="post-title" placeholder="Enter Post Title">
                     </p>
                     <p>
-                        <textarea cols="40" rows="8" type="textarea" class="post-content-textarea" name="post-content" placeholder = "Enter Post Content"></textarea>
+                        <textarea 
+                            cols="40" rows="8" 
+                            type="textarea" 
+                            class="post-content-textarea" 
+                            name="post-content" 
+                            placeholder = "Enter Post Content"
+                            required
+                        ></textarea>
                     </p>
                     <div class="7"> 
                         <button type="submit" class="btn btn-primary">Post</button>  
                     </div>                  
                 </form>
-
             </div>
         </div>
     </div>
