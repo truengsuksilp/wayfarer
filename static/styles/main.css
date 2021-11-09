@@ -332,9 +332,15 @@ article.comment {
   article.comment p {
     grid-area: commentcontent; }
 
-.about-team img {
-  max-width: 200px;
-  border-radius: 50%; }
+.about-team {
+  display: grid;
+  grid-template-columns: 150px 1fr; }
+  .about-team i {
+    color: #836faf;
+    font-size: 60px; }
+  .about-team img {
+    max-width: 200px;
+    border-radius: 50%; }
 
 h1 {
   color: #836faf; }
