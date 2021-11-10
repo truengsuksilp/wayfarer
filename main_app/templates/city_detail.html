@@ -74,9 +74,9 @@
                 {% endif %}
             </li> 
 
-            {% include 'city_modals/delete_modal.html' %}
+            {% include 'post_modals/update_modal.html' %}
 
-            {% include 'city_modals/update_modal.html' %}
+            {% include 'post_modals/delete_modal.html' %}
 
             {% endfor %}
         </ul>
@@ -87,6 +87,6 @@
 
 {% block modal %}
 
-    {% include 'city_modals/create_modal.html' %}
+    {% include 'post_modals/create_modal.html' %}
 
 {% endblock %}

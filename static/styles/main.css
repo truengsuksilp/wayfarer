@@ -205,6 +205,12 @@ main.city-detail {
     border-radius: 50%;
     text-align: center; }
 
+div p.Post.Title {
+  margin-bottom: 0; }
+
+div p.error {
+  color: red; }
+
 div.post-create-modal #button-city-dropdown {
   border: 1px solid black;
   margin-bottom: 10px; }

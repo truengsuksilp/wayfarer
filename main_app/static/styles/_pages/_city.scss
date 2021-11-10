@@ -35,6 +35,12 @@ main.city-detail {
     }
 }
 
+div {
+    p.error {
+        color: red;
+    }
+}
+
 div.post-create-modal{
     #button-city-dropdown {
         border: 1px solid black;

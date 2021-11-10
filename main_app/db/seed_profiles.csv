@@ -1,2 +1,2 @@
-user,join_date,name,slug,current_city,profile_picture,user_id
-1,11/7/21 16:33,Octocat,octa,San Francisco,https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png,1
+user,join_date,name,current_city,profile_picture,user_id,slug
+1,11/7/21 16:33,Octocat,San Francisco,https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png,1,octa
