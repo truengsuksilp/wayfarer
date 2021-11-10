@@ -81,8 +81,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Are you sure you would like to delete your comment?</p>   
-                            <p> {{comment.post.pk}} </p>                     
+                            <p>Are you sure you would like to delete your comment?</p>                        
                         </div>
                         <div class="modal-footer">
                             <form action="{% url 'comment_delete' comment.pk comment.post.pk %}" method="post">
@@ -110,7 +109,6 @@
                                 {% csrf_token %}                                
                                 <p>
                                     <input type="textarea" class="comment-content-textarea" name="content" placeholder = "{{comment.content}}" value="{{comment.content}}">
-                                    <p> {{comment.pk}} </p>
                                 </p>
                                 <div class="7"> 
                                     <button type="submit" class="btn btn-primary">Update Comment</button>  
