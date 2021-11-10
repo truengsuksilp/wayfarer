@@ -111,13 +111,13 @@ class CityDetail(DetailView):
 
 # @method_decorator(login_required, name='dispatch')
 class PostCreate(CreateView):
-    def post(self, request, pk):
+    def post(self, request, pk, city_pk):
         # form = CreatePostForm(request.POST)
         try:
             # if form.is_valid():
             title = request.POST['post-title']
             content = request.POST['post-content']
-            city = City.objects.get(pk=pk)
+            city = City.objects.get(pk=city_pk)
             profile = request.user.profile
             Post.objects.create(title=title, content=content,city=city, profile=profile)
             return redirect('city_detail', pk=pk)
