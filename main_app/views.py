@@ -19,7 +19,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 # Forms
-from .forms import SignUpForm
+from .forms import SignUpForm, CreatePostForm
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -103,20 +104,26 @@ class CityDetail(DetailView):
     
     def get_context_data(self, **kwargs): 
         context = super().get_context_data(**kwargs)
+        context['form'] = CreatePostForm()
         context['cities'] = City.objects.all()
         context['now'] = datetime.now()
         return context
 
-@method_decorator(login_required, name='dispatch')
+# @method_decorator(login_required, name='dispatch')
 class PostCreate(CreateView):
-    # TODO : Update to accept pk is blank
     def post(self, request, pk):
-        title = request.POST.get("post-title")
-        content = request.POST.get("post-content")
-        city = City.objects.get(pk=pk)
-        profile = request.user.profile
-        Post.objects.create(title=title, content=content, city=city, profile=profile)
-        return redirect('city_detail', pk=pk)
+        form = CreatePostForm(request.POST)
+        try:
+            if form.is_valid():
+                title = request.POST['title']
+                content = request.POST['content']
+                city = City.objects.get(pk=pk)
+                profile = request.user.profile
+                Post.objects.create(title=title, content=content, city=city, profile=profile)
+                return redirect('city_detail', pk=pk)
+        except Exception as error:
+            return render(request, "city_detail")
+            
 
 @method_decorator(login_required, name='dispatch')
 class PostDelete(View):

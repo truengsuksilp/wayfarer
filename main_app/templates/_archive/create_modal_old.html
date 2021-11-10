@@ -10,9 +10,17 @@
                 </div>
                 <div class="modal-body" id="modal-body-override">
                     <form action="{% url 'post_create' user.profile.pk %}" method="POST">
-                        {% csrf_token %}
+                     
                         <p>
+<<<<<<< HEAD:main_app/templates/_archive/create_modal_old.html
+                            <input 
+                                type="text" 
+                                name="post-title" placeholder="Enter Post Title"
+                                required
+                            >
+=======
                             <input type="text" name="post-title" placeholder="Enter Post Title" required>
+>>>>>>> development:main_app/templates/city_modals/create_modal.html
                         </p>
                         <p>
                             <textarea 
@@ -25,6 +33,7 @@
                                
                             ></textarea>
                         </p>
+
                         <div class="7"> 
                             <button type="submit" class="btn btn-primary">Post</button>  
                         </div>                  
