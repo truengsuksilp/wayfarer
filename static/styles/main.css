@@ -241,9 +241,6 @@ main.city-detail {
     border-radius: 50%;
     text-align: center; }
 
-div p.Post.Title {
-  margin-bottom: 0; }
-
 div p.error {
   color: red; }
 
