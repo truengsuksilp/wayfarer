@@ -46,10 +46,18 @@
     margin-right: 7vw;
     border: 5px solid $light-purple;
     border-radius: 5px;
+    transition: .5s ease-in-out;
+}
+#profile_box:hover{
+    transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 10px 10px 7px 2px $light-gray;
+    -webkit-box-shadow: 10px 10px 7px 2px $light-gray;
+    -moz-box-shadow: 10px 10px 7px 2px $light-gray;
 }
 
-#profile_box:hover{
-    transition: box-shadow, transform .5s ease-in-out;
+.post_body:hover{
+    transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
     transform: scale(1.1);
     box-shadow: 10px 10px 7px 2px $light-gray;
     -webkit-box-shadow: 10px 10px 7px 2px $light-gray;
@@ -93,6 +101,7 @@
     border: 2px solid $light-purple;
     border-radius:5px;
     min-height: 7vh;
+    transition: .5s ease-in-out;
 }
 
 .profile_pic{
