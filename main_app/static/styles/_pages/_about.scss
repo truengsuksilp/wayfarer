@@ -1,0 +1,48 @@
+.about-project {
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: justify;
+    h2 {
+        margin-bottom: 20px;
+    }
+}
+
+.about-team {
+    max-width: 1000px;
+    margin: 0 auto;
+    .person {
+        border: 2px solid $light-purple;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px;
+        margin: 40px auto;
+        .person-bio {
+            text-align: justify;
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+        }
+        .person-imgs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            .icons {
+                padding: 10px;
+                a {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+    i {
+        color: $light-purple;
+        font-size: 60px;
+    }
+    img {
+        max-width: 150px;
+        border-radius: 50%;
+    }
+}
