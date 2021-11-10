@@ -10,7 +10,7 @@
                 </div>
                 <div class="modal-body" id="modal-body-override">
                     <form action="{% url 'post_create' user.profile.pk %}" method="POST">
-                     
+                        {% csrf_token %}
                         <p class='Post Title'>
                             <input 
                                 type="text" 
