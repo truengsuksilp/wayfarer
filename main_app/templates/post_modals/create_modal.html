@@ -9,7 +9,7 @@
                     </button>
                 </div>
                 <div class="modal-body" id="modal-body-override">
-                    <form action="{% url 'post_create' user.profile.pk %}" method="POST">
+                    <form action="{% url 'post_create' user.profile.pk city.pk %}" method="POST">
                         {% csrf_token %}
                         <p class='Post Title'>
                             <input 
