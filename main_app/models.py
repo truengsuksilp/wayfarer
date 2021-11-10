@@ -39,7 +39,7 @@ class City (Model):
 
 class Post (Model): 
     title = CharField(max_length = 200)
-    content = TextField(max_length=10000)
+    content = TextField(max_length=10000, blank=False)
     profile = ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
     city = ForeignKey(City, on_delete=models.CASCADE, related_name="posts")
     created_at = DateTimeField(auto_now_add=True)
@@ -49,3 +49,12 @@ class Post (Model):
 
     class Meta:
         ordering = ['created_at']
+
+class Comment (Model):
+    content = TextField(max_length = 10000)
+    profile = ForeignKey(Profile, on_delete=models.CASCADE, related_name="comments")
+    post = ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    created_at = DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.profile)

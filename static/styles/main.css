@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font: roboto; }
 
 body {
   background-color: #050719; }
@@ -89,6 +90,9 @@ h1.home-main-title {
     width: 30px;
     height: 30px; } }
 
+* {
+  font: r; }
+
 .posting {
   min-height: 30vh; }
 
@@ -103,6 +107,13 @@ h1.home-main-title {
   padding: 6px 12px 6px 12px;
   max-width: 78.281px;
   align-self: center; }
+
+#comment-box {
+  max-width: 75vw;
+  min-width: 75vw; }
+
+#post_box {
+  max-width: 75vw; }
 
 #profile_page {
   background-color: #050719 !important;
@@ -120,7 +131,29 @@ h1.home-main-title {
   margin: 10px;
   margin-right: 7vw;
   border: 5px solid #836faf;
-  border-radius: 5px; }
+  border-radius: 5px;
+  transition: .5s ease-in-out; }
+
+#profile_box:hover {
+  transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
+  transform: scale(1.1);
+  box-shadow: 10px 10px 7px 2px #c7cadc;
+  -webkit-box-shadow: 10px 10px 7px 2px #c7cadc;
+  -moz-box-shadow: 10px 10px 7px 2px #c7cadc; }
+
+.post_body:hover {
+  transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
+  transform: scale(1.1);
+  box-shadow: 10px 10px 7px 2px #c7cadc;
+  -webkit-box-shadow: 10px 10px 7px 2px #c7cadc;
+  -moz-box-shadow: 10px 10px 7px 2px #c7cadc; }
+
+.posting:hover {
+  z-index: 10;
+  transition: box-shadow .5s ease-in-out;
+  box-shadow: 10px 10px 7px 2px #c7cadc;
+  -webkit-box-shadow: 10px 10px 7px 2px #c7cadc;
+  -moz-box-shadow: 10px 10px 7px 2px #c7cadc; }
 
 #post_box {
   margin-top: 10vh;
@@ -144,7 +177,8 @@ h1.home-main-title {
   margin: 5px 0;
   border: 2px solid #836faf;
   border-radius: 5px;
-  min-height: 7vh; }
+  min-height: 7vh;
+  transition: .5s ease-in-out; }
 
 .profile_pic {
   max-width: 60%;
@@ -176,7 +210,9 @@ h1.home-main-title {
   #profile_box {
     max-width: 90vw;
     display: flex;
-    margin: 5%; } }
+    margin: 5%; }
+  .edit {
+    margin: 5vh 0; } }
 
 main.city-detail {
   display: grid;
@@ -186,7 +222,7 @@ main.city-detail {
   main.city-detail aside {
     grid-area: aside;
     background: #020024;
-    background: linear-gradient(90deg, #020024 0%, #090979 35%, #836faf 100%);
+    background: linear-gradient(90deg, #836faf 0%, #090979 35%, #020024 100%);
     padding: 20px;
     border-radius: 1%; }
   main.city-detail article {
@@ -204,6 +240,9 @@ main.city-detail {
     margin: 15px 15px 0px 0px;
     border-radius: 50%;
     text-align: center; }
+
+div p.error {
+  color: red; }
 
 div.post-create-modal #button-city-dropdown {
   border: 1px solid black;
@@ -299,9 +338,69 @@ li.post-card {
   padding: 15px;
   margin: 50px auto;
   border: 5px solid #836faf;
-  border-radius: 5px; }
+  border-radius: 5px;
+  transition: .5s ease-in-out; }
   .post_body img {
     max-width: 100px; }
+
+#comment_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+article.comment {
+  display: grid;
+  max-width: 60vw;
+  min-width: 60vw;
+  grid-template-columns: 17fr 1fr;
+  grid-template-rows: 9fr 9fr;
+  grid-template-areas: "commentauthor  dropdownMenuLink" "commentcontent commentcontent"; }
+  article.comment h3 {
+    grid-area: commentauthor; }
+  article.comment a {
+    grid-area: dropdownMenuLink;
+    justify-self: end; }
+  article.comment p {
+    grid-area: commentcontent; }
+
+.about-project {
+  max-width: 1200px;
+  margin: 40px auto;
+  text-align: justify; }
+  .about-project h2 {
+    margin-bottom: 20px; }
+
+.about-team {
+  max-width: 1000px;
+  margin: 0 auto; }
+  .about-team .person {
+    border: 2px solid #836faf;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    margin: 40px auto; }
+    .about-team .person .person-bio {
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      max-width: 600px; }
+    .about-team .person .person-imgs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px; }
+      .about-team .person .person-imgs .icons {
+        padding: 10px; }
+        .about-team .person .person-imgs .icons a {
+          padding: 10px; }
+  .about-team i {
+    color: #836faf;
+    font-size: 60px; }
+  .about-team img {
+    max-width: 150px;
+    border-radius: 50%; }
 
 h1 {
   color: #836faf; }
