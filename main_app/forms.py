@@ -12,7 +12,7 @@ class SignUpForm(UserCreationForm):
     
     # Profile Model
     current_city = CharField()
-    profile_picture = CharField()
+    profile_picture = CharField(initial="https://media1.thehungryjpeg.com/thumbs2/ori_3686943_09tpyqe6r67ba765aheypmgvqo0vltfraf4ru77u_plane-icon.jpg")
     
     class Meta:
         model = User

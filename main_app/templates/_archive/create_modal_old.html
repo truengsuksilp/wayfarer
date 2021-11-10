@@ -12,20 +12,25 @@
                     <form action="{% url 'post_create' user.profile.pk %}" method="POST">
                      
                         <p>
+<<<<<<< HEAD:main_app/templates/_archive/create_modal_old.html
                             <input 
                                 type="text" 
                                 name="post-title" placeholder="Enter Post Title"
                                 required
                             >
+=======
+                            <input type="text" name="post-title" placeholder="Enter Post Title" required>
+>>>>>>> development:main_app/templates/city_modals/create_modal.html
                         </p>
                         <p>
                             <textarea 
                                 cols="40" rows="8" 
+                                id="textEditorCreate"  
                                 type="textarea" 
                                 class="post-content-textarea" 
                                 name="post-content" 
                                 placeholder = "Enter Post Content"
-                                required
+                               
                             ></textarea>
                         </p>
 

@@ -5,7 +5,7 @@ from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse  
-from main_app.models import Profile, Post, City
+from main_app.models import Comment, Profile, Post, City
 
 from datetime import datetime
 
@@ -27,6 +27,10 @@ from django.http import HttpResponse
 
 class Home(TemplateView):
     template_name = 'home.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"]=SignUpForm()
+        return context
     
 class ProfileDetail(DetailView):
     model = Profile
@@ -131,10 +135,34 @@ class PostDelete(View):
 class PostUpdate(UpdateView):
     model = Post
     fields = ['title', 'content']
-    template_name = "city_detail.html"
+    template_name = 'city_detail.html'
 
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.object.city.pk})
 
 class About(TemplateView):
     template_name = 'about.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"]=SignUpForm()
+        return context
+
+class CommentCreate(CreateView):
+    def post(self, request, pk):
+        content = request.POST.get("comment-content")
+        profile = request.user.profile
+        post = Post.objects.get(pk=pk)
+        Comment.objects.create(content=content, profile=profile, post=post)
+        return redirect('post_detail', pk=pk)
+
+class CommentDelete(View):
+    def post(self, request, pk, post_pk):
+        Comment.objects.filter(pk = pk).delete()
+        return redirect("post_detail", pk=post_pk)
+
+class CommentUpdate(UpdateView):
+    model = Comment
+    fields = ["content"]
+
+    def get_success_url(self):
+        return reverse("post_detail", kwargs={'pk':self.object.post.pk} )

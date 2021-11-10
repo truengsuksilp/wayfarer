@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main_app',
-    'sass_processor'
+    'sass_processor',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
