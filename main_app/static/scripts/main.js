@@ -16,15 +16,12 @@ $('#id_title').on('change', (event) =>
 $('#id_content').on('change', (event) => 
     textTooLong($('#id_content'),$('p.Post.Content'), 200)
 )
+// text editor
 tinymce.init({
-  selector: '#textEditor',
+  selector: '.post-content-textarea',
   menubar: false,
   
 });
 
-tinymce.init({
-  selector: '#textEditorCreate',
-  menubar: false,
-  
-});
+
 
