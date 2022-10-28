@@ -25,6 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
+POSTGRES_SECRET_KEY = os.getenv("POSTGRES_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,7 +84,11 @@ WSGI_APPLICATION = 'project_wayfarer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wayfarer',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'POSTGRES_SECRET_KEY',
+        'HOST': 'containers-us-west-41.railway.app',
+        'PORT': '7431'
     }
 }
 
