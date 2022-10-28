@@ -126,7 +126,7 @@ class PostCreate(CreateView):
 
             Post.objects.create(title=title, content=content,city=city, profile=profile)
             return redirect('city_detail', pk=city_pk)
-            
+
         except Exception as error:
             return render(request, "city_detail")
             
